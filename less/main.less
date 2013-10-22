@@ -57,6 +57,11 @@
         position: absolute;
         right: 0;
         top: 0;
+
+        .no-touch & {
+            height: 54px;
+            overflow: hidden;
+        }
     }
     @media (min-width: 1000px) {
         left: 50%;
@@ -115,6 +120,11 @@
     }
     @media (min-width: 800px) {
         width: auto;
+
+        .no-touch & {
+            padding: 0;
+            width: 120px;
+        }
     }
 }
 .navbar-link {
@@ -140,11 +150,30 @@
 
         &:hover {
             background-color: @blueDarker;
+
+            .no-touch & {
+                margin-top: -54px;
+            }
+        }
+        .no-touch & {
+            text-align: center;
         }
     }
+}
+.navbar-text {
+    @media (min-width: 800px) {
+        .no-touch & {
+            display: block;
+        }
+    }
+}
+.navbar-icon {
+    margin-right: .6em;
 
-    i {
-        margin-right: .6em;
+    @media (min-width: 800px) {
+        .no-touch & {
+            margin-right: 0;
+        }
     }
 }
 
