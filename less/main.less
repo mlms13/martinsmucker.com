@@ -13,8 +13,11 @@
 
 .global-head {
     background: @orange;
-    border-bottom: 2px solid @orangeDarker;
     padding: 0 8px;
+
+    @media (min-width: 800px) {
+        border-bottom: 2px solid @orangeDarker;
+    }
 
     h1 {
         margin-top: 0;
