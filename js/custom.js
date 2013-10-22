@@ -8,7 +8,6 @@
     }
     addNavToggle();
     $(window).on('resize', function () {
-        console.log('resized');
         addNavToggle();
     });
 }());
