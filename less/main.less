@@ -13,6 +13,7 @@
 
 .global-head {
     background: @orange;
+    border-bottom: 2px solid @orangeDarker;
     padding: 0 8px;
 
     h1 {
@@ -22,7 +23,9 @@
 }
 .mlms-logo {
     color: #fff;
-    font: 42px/54px @fancyFont;
+    display: inline-block;
+    font: 42px/50px @fancyFont;
+    padding: 2px 0;
     text-decoration: none;
     text-align: center;
 
@@ -30,6 +33,14 @@
     // i'm not thrilled with this solution
     position: relative;
     z-index: 2;
+
+    &:hover {
+        text-shadow: 2px 2px 0 @orangeDarkest;
+    }
+    &:active {
+        padding-top: 4px;
+        padding-bottom: 0;
+    }
 }
 
 .navbar {
@@ -111,16 +122,20 @@
     text-decoration: none;
     transition: .2s;
 
+    &:hover {
+        background-color: @orange;
+    }
+
     @media (min-width: 600px) {
         padding: 12px;
     }
     @media (min-width: 800px) {
         line-height: 54px;
         padding: 0 16px;
-    }
 
-    &:hover {
-        background-color: @orange;
+        &:hover {
+            background-color: @orangeDarker;
+        }
     }
 
     i {
