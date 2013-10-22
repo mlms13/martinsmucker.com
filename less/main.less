@@ -5,6 +5,10 @@
 @import "fonts";
 @import "utils";
 
+.shadow(@shadowColor) {
+    text-shadow: 1px 1px 0 @shadowColor;
+}
+
 .fixed-content {
     max-width: 1000px;
     margin-left: auto;
@@ -142,4 +146,46 @@
     i {
         margin-right: .6em;
     }
+}
+
+.splash {
+    margin-top: 30px;
+    text-align: center;
+}
+.splash-icon {
+    border-radius: 8px;
+    font-size: 32px;
+    line-height: 2;
+    padding: 20px 12px 20px 76px;
+    position: relative;
+
+    i {
+        font-size: 64px;
+        left: 4px;
+        position: absolute;
+    }
+    &.code {
+        color: @green;
+        .shadow(@greenDarker);
+    }
+    &.design {
+        color: @purple;
+        .shadow(@purpleDarker);
+    }
+}
+.splash-filler {
+    color: #bbb;
+    display: inline-block;
+    font: italic 22px serif;
+    padding: 0 12px;
+}
+.splash-block {
+    display: block;
+    margin: 12px 0 6px;
+}
+.splash-mega {
+    color: @orange;
+    font: 74px @fancyFont;
+    text-transform: uppercase;
+    .shadow(@orangeDarker);
 }
