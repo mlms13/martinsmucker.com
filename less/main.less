@@ -25,6 +25,11 @@
     font: 42px/54px @fancyFont;
     text-decoration: none;
     text-align: center;
+
+    // prevent sketchy overlapping in desktop mode
+    // i'm not thrilled with this solution
+    position: relative;
+    z-index: 2;
 }
 
 .navbar {
