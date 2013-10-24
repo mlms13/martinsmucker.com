@@ -35,10 +35,6 @@
     font: 42px/50px @fancyFont;
     padding: 2px 0;
     text-decoration: none;
-    // prevent sketchy overlapping in desktop mode
-    // i'm not thrilled with this solution
-    position: relative;
-    z-index: 2;
 
     &:hover {
         text-shadow: 2px 2px 0 @blueDarker;
@@ -65,10 +61,12 @@
         }
     }
     @media (min-width: 1000px) {
+        // this works because at 500px wide, the nav is
+        // exactly half of the max width of our page.
+        // it's a little dirty, but we needed a fixed width anyway.
         left: 50%;
-        margin-left: -500px;
         right: auto;
-        width: 980px;
+        width: 500px;
     }
 }
 
