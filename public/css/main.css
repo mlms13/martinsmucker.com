@@ -63,10 +63,10 @@ table{border-collapse:collapse;border-spacing:0}
 @media (min-width:800px){.no-touch .navbar-text{display:block}}
 .navbar-icon{margin-right:.6em}@media (min-width:800px){.no-touch .navbar-icon{margin-right:0}}
 .splash{font-family:Norwester,sans-serif;margin:40px auto;text-align:center}
-.splash-icon{background:#f4f4f4;border-radius:8px;font-size:32px;line-height:2;padding:20px 12px 20px 76px;position:relative}.splash-icon i{font-size:64px;left:4px;position:absolute}
+.splash-icon{background:#f4f4f4;border-radius:8px;display:inline-block;font-size:8vw;line-height:2;padding-left:18vw;padding-right:2vw;position:relative}.splash-icon i{font-size:16vw;left:4px;position:absolute}
 .splash-icon.code{color:#9c5;text-shadow:1px 1px 0 #70a030}
 .splash-icon.design{color:#95c;text-shadow:1px 1px 0 #7030a0}
-.splash-filler{color:#bbb;display:inline-block;font:italic 22px serif;padding:0 12px}
+.splash-filler{color:#bbb;display:inline-block;font:italic 6vw serif;padding:0 2vw}
 .splash-block{display:block;margin:12px 0 6px}
-.splash-mega{color:#e93;font-size:74px;font-weight:normal;text-transform:uppercase;text-shadow:1px 1px 0 #cd7a17}
+.splash-mega{color:#e93;font-size:18vw;font-weight:normal;text-transform:uppercase;text-shadow:1px 1px 0 #cd7a17}
 .about{background:#eee;border-top:2px solid #ddd;padding:12px 0}
