@@ -191,10 +191,20 @@
     padding-right: 2vw;
     position: relative;
 
+    @media (min-width: 420px) {
+        font-size: 34px;
+        padding-left: 76px;
+        padding-right: 8px;
+    }
+
     i {
         font-size: 16vw;
         left: 4px;
         position: absolute;
+
+        @media (min-width: 420px) {
+            font-size: 66px;
+        }
     }
     &.code {
         color: @green;
@@ -210,6 +220,11 @@
     display: inline-block;
     font: italic 6vw serif;
     padding: 0 2vw;
+
+    @media (min-width: 420px) {
+        font-size: 25px;
+        padding: 0 8px;
+    }
 }
 .splash-block {
     display: block;
@@ -221,6 +236,10 @@
     font-weight: normal;
     text-transform: uppercase;
     .shadow(@orangeDarker);
+
+    @media (min-width: 420px) {
+        font-size: 76px;
+    }
 }
 
 .about {
