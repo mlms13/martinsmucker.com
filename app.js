@@ -6,7 +6,6 @@
 var express = require('express');
 var routes = require('./routes');
 var portfolio = require('./routes/portfolio');
-var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var lessMiddleware = require('less-middleware');
