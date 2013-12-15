@@ -62,11 +62,4 @@ table{border-collapse:collapse;border-spacing:0}
 @media (min-width:600px){.navbar-link{padding:12px}}@media (min-width:800px){.navbar-link{line-height:54px;padding:0 16px}.navbar-link:hover{background-color:#008bb4}.no-touch .navbar-link:hover{margin-top:-54px} .no-touch .navbar-link{padding:0;text-align:center}}
 @media (min-width:800px){.no-touch .navbar-text{display:block}}
 .navbar-icon{margin-right:.6em}@media (min-width:800px){.no-touch .navbar-icon{margin-right:0}}
-.splash{font-family:Norwester,sans-serif;margin:40px auto;text-align:center}
-.splash-icon{background:#f4f4f4;border-radius:8px;display:inline-block;font-size:8vw;line-height:2;padding-left:18vw;padding-right:2vw;position:relative}@media (min-width:420px){.splash-icon{font-size:34px;padding-left:76px;padding-right:8px}}.splash-icon i{font-size:16vw;left:4px;position:absolute}@media (min-width:420px){.splash-icon i{font-size:66px}}
-.splash-icon.code{color:#9c5;text-shadow:1px 1px 0 #70a030}
-.splash-icon.design{color:#95c;text-shadow:1px 1px 0 #7030a0}
-.splash-filler{color:#bbb;display:inline-block;font:italic 6vw serif;padding:0 2vw}@media (min-width:420px){.splash-filler{font-size:25px;padding:0 8px}}
-.splash-block{display:block;margin:12px 0 6px}
-.splash-mega{color:#e93;font-size:18vw;font-weight:normal;text-transform:uppercase;text-shadow:1px 1px 0 #cd7a17}@media (min-width:420px){.splash-mega{font-size:76px}}
 .about{background:#eee;border-top:2px solid #ddd;padding:12px 0}
