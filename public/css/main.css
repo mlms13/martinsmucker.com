@@ -21,7 +21,7 @@ small{font-size:80%}
 sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
 sup{top:-0.5em}
 sub{bottom:-0.25em}
-img{border:0}
+img{border:0;max-width:100%}
 svg:not(:root){overflow:hidden}
 figure{margin:0}
 fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}
@@ -61,5 +61,8 @@ table{border-collapse:collapse;border-spacing:0}
 @media (min-width:600px){.navbar-link{padding:12px}}@media (min-width:800px){.navbar-link{line-height:54px;padding:0 16px}.navbar-link:hover{background-color:#008bb4}.no-touch .navbar-link:hover{margin-top:-54px} .no-touch .navbar-link{padding:0;text-align:center}}
 @media (min-width:800px){.no-touch .navbar-text{display:block}}
 .navbar-icon{margin-right:.6em}@media (min-width:800px){.no-touch .navbar-icon{margin-right:0}}
+.profile-card{margin-top:30px;text-align:center}
+.profile-img{background:#fff;border:5px solid #0ad;border-radius:50%;box-sizing:border-box;padding:5px}@media (min-width:720px){.profile-img{padding:10px}}
+.profile-title{color:#008bb4;font-family:Norwester,sans-serif;font-size:46px;font-size:12vw;margin:-50px 0 0;text-shadow:1px 1px 0 #fff,2px 2px 0 #0ad}@media (min-width:560px){.profile-title{font-size:8vw;text-shadow:2px 2px 0 #fff,4px 4px 0 #0ad}}@media (min-width:720px){.profile-title{font-size:64px}}
 .global-head{background:#0ad}@media (min-width:800px){.global-head{border-bottom:2px solid #008bb4}}
 .about{background:#eee;border-top:2px solid #ddd;padding:12px 0}
