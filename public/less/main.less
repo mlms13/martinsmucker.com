@@ -1,20 +1,17 @@
 @charset "UTF-8";
 
+// import the basics
 @import "variables";
 @import "normalize";
 @import "fonts";
-@import "utils";
+
+// import components
+@import "components/utils";
+@import "components/logo";
+@import "components/navbar";
 
 .shadow(@shadowColor) {
     text-shadow: 1px 1px 0 @shadowColor;
-}
-
-.fixed-content {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 980px;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .global-head {
@@ -22,157 +19,6 @@
 
     @media (min-width: 800px) {
         border-bottom: 2px solid @blueDarker;
-    }
-}
-
-.logo {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-.logo-link {
-    color: #fff;
-    display: inline-block;
-    font: 42px/50px @fancyFont;
-    padding: 2px 0;
-    text-decoration: none;
-
-    &:hover {
-        text-shadow: 2px 2px 0 @blueDarker;
-    }
-    &:active {
-        padding-top: 4px;
-        padding-bottom: 0;
-    }
-}
-
-.navbar {
-    background: @blueDarker;
-    position: relative;
-
-    @media (min-width: 800px) {
-        background: none;
-        position: absolute;
-        right: 0;
-        top: 0;
-
-        .no-touch & {
-            height: 54px;
-            overflow: hidden;
-        }
-    }
-    @media (min-width: 1000px) {
-        // this works because at 500px wide, the nav is
-        // exactly half of the max width of our page.
-        // it's a little dirty, but we needed a fixed width anyway.
-        left: 50%;
-        right: auto;
-        width: 500px;
-    }
-}
-
-// no point in styling this if the browser won't show the icon
-.generatedcontent .navbar-toggle {
-    color: #fff;
-    cursor: pointer;
-    font-size: 30px;
-    line-height: 54px;
-    padding: 0 12px;
-    position: absolute;
-    right: 0;
-    top: -54px;
-    transition: .2s;
-
-    &:hover {
-        background: @blueDarker;
-    }
-    &.clicked {
-        background: @blueDarker;
-    }
-}
-.navbar-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    @media (min-width: 1000px) {
-        float: right;
-    }
-
-    // for this one, it makes more sense to specifically target small screens
-    // instead of being "mobile by default"
-    @media (max-width: 800px) {
-        .js.generatedcontent & {
-            display: none;
-
-            &.visible {
-                display: block;
-            }
-        }
-    }
-}
-.navbar-item {
-    float: left;
-    width: 50%;
-
-    @media (min-width: 600px) {
-        width: 25%;
-    }
-    @media (min-width: 800px) {
-        width: auto;
-
-        .no-touch & {
-            width: 100px;
-        }
-    }
-}
-.navbar-link {
-    color: #fff;
-    display: block;
-    font-size: 20px;
-    font-family: @fancyFont;
-    line-height: 1.3;
-    padding: 8px 12px;
-    text-decoration: none;
-    transition: .2s;
-
-    &:hover {
-        background-color: @blue;
-    }
-
-    @media (min-width: 600px) {
-        padding: 12px;
-    }
-    @media (min-width: 800px) {
-        line-height: 54px;
-        padding: 0 16px;
-
-        &:hover {
-            background-color: @blueDarker;
-
-            .no-touch & {
-                margin-top: -54px;
-            }
-        }
-        .no-touch & {
-            padding: 0;
-            text-align: center;
-        }
-    }
-}
-.navbar-text {
-    @media (min-width: 800px) {
-        .no-touch & {
-            display: block;
-        }
-    }
-}
-.navbar-icon {
-    margin-right: .6em;
-
-    @media (min-width: 800px) {
-        .no-touch & {
-            margin-right: 0;
-        }
     }
 }
 

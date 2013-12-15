@@ -49,7 +49,6 @@ table{border-collapse:collapse;border-spacing:0}
 .clearfix{*zoom:1}.clearfix:before,.clearfix:after{content:"";display:table;line-height:0}
 .clearfix:after{clear:both}
 .fixed-content{margin-left:auto;margin-right:auto;max-width:980px;padding-left:10px;padding-right:10px}
-.global-head{background:#0ad}@media (min-width:800px){.global-head{border-bottom:2px solid #008bb4}}
 .logo{margin-top:0;margin-bottom:0}
 .logo-link{color:#fff;display:inline-block;font:42px/50px Norwester,sans-serif;padding:2px 0;text-decoration:none}.logo-link:hover{text-shadow:2px 2px 0 #008bb4}
 .logo-link:active{padding-top:4px;padding-bottom:0}
@@ -62,4 +61,5 @@ table{border-collapse:collapse;border-spacing:0}
 @media (min-width:600px){.navbar-link{padding:12px}}@media (min-width:800px){.navbar-link{line-height:54px;padding:0 16px}.navbar-link:hover{background-color:#008bb4}.no-touch .navbar-link:hover{margin-top:-54px} .no-touch .navbar-link{padding:0;text-align:center}}
 @media (min-width:800px){.no-touch .navbar-text{display:block}}
 .navbar-icon{margin-right:.6em}@media (min-width:800px){.no-touch .navbar-icon{margin-right:0}}
+.global-head{background:#0ad}@media (min-width:800px){.global-head{border-bottom:2px solid #008bb4}}
 .about{background:#eee;border-top:2px solid #ddd;padding:12px 0}
