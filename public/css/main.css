@@ -64,5 +64,6 @@ table{border-collapse:collapse;border-spacing:0}
 .profile-card{margin-top:30px;text-align:center}
 .profile-img{background:#fff;border:5px solid #0ad;border-radius:50%;box-sizing:border-box;padding:5px}@media (min-width:720px){.profile-img{padding:10px}}
 .profile-title{color:#008bb4;font-family:Norwester,sans-serif;font-size:46px;font-size:12vw;margin:-50px 0 0;text-shadow:1px 1px 0 #fff,2px 2px 0 #0ad}@media (min-width:560px){.profile-title{font-size:8vw;text-shadow:2px 2px 0 #fff,4px 4px 0 #0ad}}@media (min-width:720px){.profile-title{font-size:64px}}
+.profile-desc{color:#999;font-size:22px;font-style:italic}
 .global-head{background:#0ad}@media (min-width:800px){.global-head{border-bottom:2px solid #008bb4}}
 .about{background:#eee;border-top:2px solid #ddd;padding:12px 0}
