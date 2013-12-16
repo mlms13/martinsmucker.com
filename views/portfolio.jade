@@ -3,4 +3,12 @@ extends layout
 block content
   section.portfolio
     div.fixed-content
-      p Portfolio coming soon.
+      if error
+          .alert.alert-danger
+              button.close(type="button", data-dismiss="alert", aria-hidden="true") &times;
+              strong= error.title
+              span= " " + error.body
+      else
+        ul
+          each item in items
+            li= item.title
