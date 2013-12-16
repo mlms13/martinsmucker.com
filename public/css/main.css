@@ -65,5 +65,10 @@ table{border-collapse:collapse;border-spacing:0}
 .profile-img{background:#fff;border:5px solid #0ad;border-radius:50%;box-sizing:border-box;padding:5px}@media (min-width:720px){.profile-img{padding:10px}}
 .profile-title{color:#008bb4;font-family:Norwester,sans-serif;font-size:46px;font-size:12vw;margin:-50px 0 0;text-shadow:1px 1px 0 #fff,2px 2px 0 #0ad}@media (min-width:560px){.profile-title{font-size:8vw;text-shadow:2px 2px 0 #fff,4px 4px 0 #0ad}}@media (min-width:720px){.profile-title{font-size:64px}}
 .profile-desc{color:#999;font-size:22px;font-style:italic}
+.feature{background:#444}
+.feature-list{list-style:none;padding-top:20px;padding-bottom:20px}
+.feature-item{box-shadow:0 0 1px rgba(0,0,0,0.3);margin-bottom:15px;min-height:180px;position:relative}@media (min-width:600px){.feature-item{float:left;margin-left:1%;margin-right:1%;width:48%}}@media (min-width:900px){.feature-item{width:31%}}
+.feature-noimage{background:#9c5;color:#fff;position:absolute;width:100%}.feature-noimage:before{content:"\e603";display:block;font:42px Icomoon;line-height:180px;text-align:center}
+.feature-title{background:#fff;background:rgba(255,255,255,0.9);bottom:0;color:#9c5;left:0;margin:0;padding:8px;position:absolute;right:0}
 .global-head{background:#0ad}@media (min-width:800px){.global-head{border-bottom:2px solid #008bb4}}
 .about{background:#eee;border-top:2px solid #ddd;padding:12px 0}
