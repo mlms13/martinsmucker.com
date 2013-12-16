@@ -18,7 +18,7 @@ block content
         each item in items
           li.feature-item
             if item.pictures && item.pictures.landscape && item.pictures.landscape.src
-              img(src='/images/portfolio/' + item.pictures.landscape.src, alt="" + item.pictures.landscape.alt)
+              img.feature-img(src='/images/portfolio/' + item.pictures.landscape.src, alt="" + item.pictures.landscape.alt)
             else
               div.feature-noimage
             h3.feature-title= item.title
