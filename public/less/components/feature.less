@@ -22,9 +22,21 @@
         margin-left: 1%;
         margin-right: 1%;
         width: 48%;
+
+        &:nth-of-child(2n + 1) {
+            clear: left;
+        }
     }
     @media (min-width: 900px) {
         width: 31%;
+
+        &:nth-of-child(2n + 1) {
+            clear: none;
+        }
+
+        &:nth-of-child(3n + 1) {
+            clear: left;
+        }
     }
 }
 
