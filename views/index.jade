@@ -6,19 +6,4 @@ block content
     figcaption.profile-caption
       h2.profile-title Michael Martin&#8209;Smucker
       p.profile-desc I design and develop modern websites and web applications. I work for USF Health, and in my free time I work on jQuery plugins and Node.JS projects.
-
-  section.portfolio
-    if error
-        .alert.alert-danger
-            button.close(type="button", data-dismiss="alert", aria-hidden="true") &times;
-            strong= error.title
-            span= " " + error.body
-    else if items && items.length
-      ul.portfolio-list.fixed-content.clearfix
-        each item in items
-          li.portfolio-item
-            if item.pictures && item.pictures.landscape && item.pictures.landscape.src
-              img.portfolio-item-img(src='/images/portfolio/' + item.pictures.landscape.src, alt="" + item.pictures.landscape.alt)
-            else
-              div.portfolio-item-noimage
-            h3.portfolio-item-title= item.title
+  include portfolio-list
