@@ -13,6 +13,7 @@ var app = express();
 // routes
 var index = require('./routes/index');
 var portfolio = require('./routes/portfolio');
+var blog = require('./routes/blog');
 var error = require('./routes/error');
 
 // all environments
@@ -41,6 +42,8 @@ if ('development' == app.get('env')) {
 
 app.get('/', index);
 app.get('/portfolio', portfolio);
+app.get('/blog', blog.list);
+app.get('/blog/:slug', blog.showPost);
 app.get('*', error);
 
 http.createServer(app).listen(app.get('port'), function(){

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    if error
+        .alert.alert-danger
+            button.close(type="button", data-dismiss="alert", aria-hidden="true") &times;
+            strong= error.title
+            span= " " + error.body
+    else
+        article.blogpost
+            h1.blogpost-title title
+            if subtitle
+                h2.blogpost-subtitle= subtitle
+            |= content
