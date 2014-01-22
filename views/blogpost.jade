@@ -8,7 +8,7 @@ block content
             span= " " + error.body
     else
         article.blogpost
-            h1.blogpost-title title
+            h1.blogpost-title  #{title}
             if subtitle
-                h2.blogpost-subtitle= subtitle
-            |= content
+                h2.blogpost-subtitle #{subtitle}
+            | #{content}
