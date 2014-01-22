@@ -16,12 +16,12 @@ module.exports.showPost = function (req, res) {
             }
           });
         } else if (!item) {
-            req.render('blogpost', {
+            res.render('blogpost', {
                 title: "The Blog Post Wasn't Found",
                 content: "<p>Are you sure the URL is correct? Because we looked pretty hard and couldn't find anything.</p>"
             });
         } else {
-            req.render('blogpost', {
+            res.render('blogpost', {
                 title: item.title,
                 subtitle: item.subtitle,
                 content: item.content
