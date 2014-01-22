@@ -6,7 +6,7 @@
 var mongoUri = process.env.MONGOHQ_URL || require('../config.js').mongohq_uri;
 var db = require('mongojs').connect(mongoUri, ['portfolio']);
 
-exports.index = function(req, res){
+module.exports = function (req, res) {
   db.portfolio.find({favorite: true}, function (err, items) {
     if (err) {
       res.render('index', {

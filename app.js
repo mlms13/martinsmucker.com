@@ -4,14 +4,16 @@
  */
 
 var express = require('express');
-var routes = require('./routes');
-var portfolio = require('./routes/portfolio');
-var error = require('./routes/error');
 var http = require('http');
 var path = require('path');
 var lessMiddleware = require('less-middleware');
 
 var app = express();
+
+// routes
+var index = require('./routes/index');
+var portfolio = require('./routes/portfolio');
+var error = require('./routes/error');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -37,9 +39,9 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/portfolio', portfolio.create);
-app.get('*', error.show);
+app.get('/', index);
+app.get('/portfolio', portfolio);
+app.get('*', error);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
