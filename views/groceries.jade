@@ -1,0 +1,71 @@
+extends layout
+
+block styles
+    style.
+        body {
+            color: #333;
+        }
+        .grocery-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .grocery-list li {
+            padding: 8px 16px;
+        }
+        .complete {
+            color: #bbb;
+            text-decoration: line-through;
+        }
+
+block content
+    ul.grocery-list
+        li Carrots
+        li Celery
+        li Cilantro
+        li 2 Lemons
+        li Garlic
+        li Ginger
+        li Red Bell Peper
+        li Green Bell Pepper
+        li 2 Serrano peppers
+        li Green beans
+        li Mushrooms
+        li Fresh mint
+        li 3 Yellow Onions
+        li 1 Cup Arugula
+        li Fresh Spinach
+        li Kale
+        li Kind bars
+        li Lg Can Crushed Tomatoes
+        li 14 oz can diced tomatoes
+        li 26oz jar of marinara
+        li Light coconut milk
+        li 2 cans of chickpeas
+        li Chicken breasts
+        li Ground beef or ground turkey
+        li Frozen corn
+        li Frozen brown rice
+        li 1 cup ricotta
+        li Parmesan
+        li Mozzarella
+        li Tortillas
+
+block scripts
+    script.
+        (function () {
+            var i = 0, items = $('.grocery-list li');
+            window.scrollTo(0, 1); // Hide the address bar
+
+            $(items).each(function () {
+                i++;
+                $(this).wrapInner('<label for="g' + i + '" />').prepend('<input type="checkbox" id="g' + i + '" />');
+            }).find('input').click(function () {
+                var str = "";
+                if($(this)[0].checked) {
+                    $(this).parent().addClass('complete');
+                } else {
+                    $(this).parent().removeClass('complete');
+                }
+            });
+        }());
