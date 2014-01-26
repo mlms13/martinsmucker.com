@@ -5,6 +5,7 @@ html(lang="en-us", class="no-js")
     title= title
     meta(name="viewport", content="width=device-width, initial-scale=1")
     link(rel="stylesheet", href="/css/main.css")
+    block styles
     script(src="/js/modernizr.js")
     script.
       yepnope({
@@ -36,3 +37,4 @@ html(lang="en-us", class="no-js")
     block content
     script(src="js/jquery.js")
     script(src="js/custom.js")
+    block scripts
