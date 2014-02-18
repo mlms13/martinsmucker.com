@@ -13,13 +13,8 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 
-app.use(require('less-middleware')({
-  src: __dirname + '/public/less',
-  dest: __dirname + '/public/css',
-  prefix: '/css',
-  compress: true
-}));
-
+// add static routes before we use our router
+// otherwise we get the 404 page instead of static files (js, css, etc)
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
