@@ -1,0 +1,20 @@
+@charset "UTF-8"
+
+// import the basics
+@import "variables"
+@import "normalize"
+@import "fonts"
+
+// import components
+@import "components/*"
+
+.global-head
+    background $blue
+
+    @media (min-width 800px)
+        border-bottom 2px solid $blueDarker
+
+.about
+    background #eee
+    border-top 2px solid #ddd
+    padding 12px 0

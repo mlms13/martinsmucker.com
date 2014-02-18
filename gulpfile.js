@@ -1,11 +1,11 @@
 var gulp = require('gulp');
 
-gulp.task('less', function () {
-    var less = require('gulp-less'),
+gulp.task('stylus', function () {
+    var stylus = require('gulp-stylus'),
         autoprefixer = require('gulp-autoprefixer');
 
-    gulp.src('./public/less/main.less')
-        .pipe(less({ paths: ['./public/less/*.less'] }))
+    gulp.src('./styl/main.styl')
+        .pipe(stylus({ paths: ['./styl/*.styl'] }))
         .pipe(autoprefixer())
         .pipe(gulp.dest('./public/css'));
 });
@@ -52,4 +52,4 @@ gulp.task('deploy', function () {
     }
 });
 
-gulp.task('default', ['less', 'lint']);
+gulp.task('default', ['stylus', 'lint']);

@@ -17,6 +17,6 @@
     "jshint-stylish": "~0.1.5",
     "gulp-autoprefixer": "0.0.6",
     "gulp-jshint": "~1.4.2",
-    "gulp-less": "~1.2.1"
+    "gulp-stylus": "0.0.13"
   }
 }
