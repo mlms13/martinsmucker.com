@@ -2,11 +2,13 @@ var gulp = require('gulp');
 
 gulp.task('stylus', function () {
     var stylus = require('gulp-stylus'),
-        autoprefixer = require('gulp-autoprefixer');
+        autoprefixer = require('gulp-autoprefixer'),
+        minify = require('gulp-minify-css');
 
     gulp.src('./styl/main.styl')
         .pipe(stylus({ paths: ['./styl/*.styl'] }))
         .pipe(autoprefixer())
+        .pipe(minify())
         .pipe(gulp.dest('./public/css'));
 });
 
