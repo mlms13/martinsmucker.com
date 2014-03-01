@@ -1,22 +1,22 @@
 {
-  "name": "martinsmucker.com",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
-  "dependencies": {
-    "express": "3.4.3",
-    "jade": "*",
-    "less-middleware": "*",
-    "mongojs": "~0.9.6"
-  },
-  "devDependencies": {
-    "gulp": "~3.5.2",
-    "shelljs": "~0.2.6",
-    "jshint-stylish": "~0.1.5",
-    "gulp-autoprefixer": "0.0.6",
-    "gulp-jshint": "~1.4.2",
-    "gulp-stylus": "0.0.13"
-  }
+    "name": "martinsmucker.com",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "3.4.3",
+        "jade": "*",
+        "less-middleware": "*",
+        "mongojs": "~0.9.6"
+    },
+    "devDependencies": {
+        "gulp": "~3.5.2",
+        "shelljs": "~0.2.6",
+        "jshint-stylish": "~0.1.5",
+        "gulp-autoprefixer": "0.0.6",
+        "gulp-jshint": "~1.4.2",
+        "gulp-stylus": "0.0.13"
+    }
 }

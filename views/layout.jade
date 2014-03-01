@@ -1,40 +1,40 @@
 doctype html
 html(lang="en-us", class="no-js")
-  head
-    meta(charset="UTF-8")
-    title= title
-    meta(name="viewport", content="width=device-width, initial-scale=1")
-    link(rel="stylesheet", href="/css/main.css")
-    block styles
-    script(src="/js/modernizr.js")
-    script.
-      yepnope({
-        test: Modernizr.mq('only all'),
-        nope: ['js/respond.js']
-      })
-  body
-    header.global-head
-      h1.fixed-content.logo
-        a.logo-link(href="/") MLMS
-    nav.navbar
-      ul.navbar-list.clearfix
-        li.navbar-item
-          a.navbar-link(href="/")
-            i.navbar-icon.icon-home
-            span.navbar-text Home
-        li.navbar-item
-          a.navbar-link(href="/portfolio")
-            i.navbar-icon.icon-pictures
-            span.navbar-text Portfolio
-        li.navbar-item
-          a.navbar-link(href="/")
-            i.navbar-icon.icon-pencil
-            span.navbar-text Blog
-        li.navbar-item
-          a.navbar-link(href="/")
-            i.navbar-icon.icon-envelope-alt
-            span.navbar-text Contact
-    block content
-    script(src="js/jquery.js")
-    script(src="js/custom.js")
-    block scripts
+    head
+        meta(charset="UTF-8")
+        title= title
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/main.css")
+        block styles
+        script(src="/js/modernizr.js")
+        script.
+            yepnope({
+                test: Modernizr.mq('only all'),
+                nope: ['js/respond.js']
+            });
+    body
+        header.global-head
+            h1.fixed-content.logo
+                a.logo-link(href="/") MLMS
+        nav.navbar
+            ul.navbar-list.clearfix
+                li.navbar-item
+                    a.navbar-link(href="/")
+                        i.navbar-icon.icon-home
+                        span.navbar-text Home
+                li.navbar-item
+                    a.navbar-link(href="/portfolio")
+                        i.navbar-icon.icon-pictures
+                        span.navbar-text Portfolio
+                li.navbar-item
+                    a.navbar-link(href="/")
+                        i.navbar-icon.icon-pencil
+                        span.navbar-text Blog
+                li.navbar-item
+                    a.navbar-link(href="/")
+                        i.navbar-icon.icon-envelope-alt
+                        span.navbar-text Contact
+        block content
+        script(src="js/jquery.js")
+        script(src="js/custom.js")
+        block scripts
