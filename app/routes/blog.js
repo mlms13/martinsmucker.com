@@ -1,5 +1,5 @@
 
-var mongoUri = process.env.MONGOHQ_URL || require('../config.js').mongohq_uri;
+var mongoUri = process.env.MONGOHQ_URL || require('../../config.js').mongohq_uri;
 var db = require('mongojs').connect(mongoUri, ['portfolio']);
 
 module.exports.list = function (req, res) {
