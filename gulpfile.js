@@ -5,7 +5,7 @@ gulp.task('stylus', function () {
         autoprefixer = require('gulp-autoprefixer'),
         minify = require('gulp-minify-css');
 
-    gulp.src('./styl/main.styl')
+    gulp.src('./assets/styl/main.styl')
         .pipe(stylus({ paths: ['./styl/*.styl'] }))
         .pipe(autoprefixer())
         .pipe(minify())
