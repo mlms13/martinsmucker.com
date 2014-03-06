@@ -5,6 +5,7 @@ config.js
 *.css
 public/images/*
 public/lib/*
+public/js/*
 
 #################
 ## Eclipse
