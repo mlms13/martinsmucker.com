@@ -21,6 +21,14 @@ gulp.task('lint', function () {
         .pipe(jshint.reporter(stylish));
 });
 
+gulp.task('images', function () {
+    var imagemin = require('gulp-imagemin');
+
+    gulp.src('assets/images/**/*')
+        .pipe(imagemin({progressive: true}))
+        .pipe(gulp.dest('./public'));
+});
+
 gulp.task('deploy', function () {
     var shell = require('shelljs');
 
@@ -54,4 +62,4 @@ gulp.task('deploy', function () {
     }
 });
 
-gulp.task('default', ['stylus', 'lint']);
+gulp.task('default', ['stylus', 'lint', 'images']);
