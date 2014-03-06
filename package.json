@@ -10,6 +10,7 @@
     "express": "3.4.3",
     "jade": "*",
     "less-middleware": "*",
+    "bower": "~1.2.8",
     "mongojs": "~0.9.6"
   },
   "devDependencies": {
@@ -21,7 +22,6 @@
     "gulp-stylus": "0.0.13",
     "gulp-minify-css": "~0.3.0",
     "gulp-imagemin": "~0.1.5",
-    "bower": "~1.2.8",
     "gulp-uglify": "~0.2.1"
   }
 }
