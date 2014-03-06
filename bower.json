@@ -1,0 +1,8 @@
+{
+  "name": "martinsmucker.com",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "~1.11",
+    "respond": "~1.4.2"
+  }
+}

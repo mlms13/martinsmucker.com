@@ -10,7 +10,7 @@ html(lang="en-us", class="no-js")
         script.
             yepnope({
                 test: Modernizr.mq('only all'),
-                nope: ['js/respond.js']
+                nope: ['lib/respond/dest/respond.min.js']
             });
     body
         header.global-head
@@ -35,6 +35,6 @@ html(lang="en-us", class="no-js")
                         i.navbar-icon.icon-envelope-alt
                         span.navbar-text Contact
         block content
-        script(src="js/jquery.js")
+        script(src="lib/jquery/dist/jquery.min.js")
         script(src="js/custom.js")
         block scripts
