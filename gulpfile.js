@@ -46,7 +46,7 @@ gulp.task('deploy', function () {
     }
 
     // add the build directory
-    if (shell.exec('git add --force ./public/css/**.css').code !== 0) {
+    if (shell.exec('git add --force ./public/**/*').code !== 0) {
         console.error('Failed to add build directory to commit');
         shell.exit(1);
     }
