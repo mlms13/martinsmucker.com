@@ -34,7 +34,7 @@ gulp.task('images', function () {
 
     gulp.src('assets/images/**/*')
         .pipe(imagemin({progressive: true}))
-        .pipe(gulp.dest('./public'));
+        .pipe(gulp.dest('./public/images'));
 });
 
 gulp.task('deploy', function () {
