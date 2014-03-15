@@ -83,18 +83,33 @@
     &:hover
         background-color $blue
 
+    &:active
+        background-color $blueDarkest
+        padding-top 10px
+        padding-bottom 6px
+
     @media (min-width: 600px)
         padding 12px
+        text-align center
+
+        &:active
+            padding-top 14px
+            padding-bottom 10px
 
     @media (min-width: 800px)
-        line-height 54px
-        padding 0 16px
+        line-height 50px
+        padding 2px 16px
 
         &:hover
             background-color $blueDarker
 
             .no-touch &
                 margin-top -54px
+
+        &:active
+            background-color $blueDarkest
+            padding-top 4px
+            padding-bottom 0
 
         .no-touch &
             padding 0
