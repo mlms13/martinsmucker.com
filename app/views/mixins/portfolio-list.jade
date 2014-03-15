@@ -1,0 +1,19 @@
+mixin portfolio(title)
+    section.portfolio
+        if error
+            .alert.alert-danger
+                button.close(type="button", data-dismiss="alert", aria-hidden="true") &times;
+                strong= error.title
+                span= " " + error.body
+        else if items && items.length
+            if title
+                h1.portfolio-title= title
+
+            ul.portfolio-list.fixed-content.clearfix
+                each item in items
+                    li.portfolio-item
+                        if item.pictures && item.pictures.landscape && item.pictures.landscape.src
+                            img.portfolio-item-img(src='/images/portfolio/' + item.pictures.landscape.src, alt="" + item.pictures.landscape.alt)
+                        else
+                            div.portfolio-item-noimage
+                        h3.portfolio-item-title= item.title

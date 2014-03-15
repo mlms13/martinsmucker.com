@@ -1,3 +1,5 @@
+include mixins/portfolio-list
+
 extends layout
 
 block content
@@ -6,4 +8,4 @@ block content
         figcaption.profile-caption
             h2.profile-title Michael Martin&#8209;Smucker
             p.profile-desc I design and develop modern websites and web applications. I work for USF Health, and in my free time I work on jQuery plugins and Node.JS projects.
-    include portfolio-list
+    +portfolio('Featured Projects')
