@@ -18,6 +18,10 @@ gulp.task('js', function () {
     gulp.src('./assets/js/*.js')
         .pipe(uglify())
         .pipe(gulp.dest('./public/js'));
+
+    gulp.src('./public/lib/fastclick/lib/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('./public/lib/fastclick/build'));
 });
 
 gulp.task('lint', function () {

@@ -10,4 +10,7 @@
     $(window).on('resize', function () {
         addNavToggle();
     });
+
+    // enable fast clicking
+    FastClick.attach(document.body);
 }());
