@@ -42,7 +42,7 @@ gulp.task('images', function () {
         .pipe(gulp.dest('./public/images'));
 });
 
-gulp.task('server', ['default'], function () {
+gulp.task('server', function () {
     var nodemon = require('nodemon');
 
     nodemon({
@@ -53,7 +53,7 @@ gulp.task('server', ['default'], function () {
     });
 });
 
-gulp.task('watch', ['default'], function () {
+gulp.task('watch', function () {
     var lr = require('gulp-livereload'),
         server = lr();
 
@@ -97,4 +97,6 @@ gulp.task('deploy', function () {
     }
 });
 
-gulp.task('default', ['stylus', 'js', 'lint', 'images']);
+gulp.task('compile', ['stylus', 'js', 'lint', 'images']);
+
+gulp.task('default', ['compile', 'watch', 'server']);
