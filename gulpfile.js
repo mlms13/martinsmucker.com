@@ -54,8 +54,14 @@ gulp.task('server', ['default'], function () {
 });
 
 gulp.task('watch', ['default'], function () {
+    var lr = require('gulp-livereload'),
+        server = lr();
+
     gulp.watch('assets/styl/**', ['stylus']);
     gulp.watch('assets/js/**', ['lint', 'js']);
+    gulp.watch('public/**').on('change', function (file) {
+        server.changed(file.path);
+    });
 });
 
 gulp.task('deploy', function () {

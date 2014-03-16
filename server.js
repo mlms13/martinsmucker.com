@@ -17,6 +17,12 @@ app.use(express.methodOverride());
 // add static routes before we use our router
 // otherwise we get the 404 page instead of static files (js, css, etc)
 app.use(express.static(path.join(__dirname, 'public')));
+
+// in our development environment, inject the livereload script into non-static files
+app.configure('development', function () {
+    app.use(require('connect-livereload')());
+});
+
 app.use(app.router);
 
 // routes
