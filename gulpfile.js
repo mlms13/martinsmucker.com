@@ -41,6 +41,11 @@ gulp.task('images', function () {
         .pipe(gulp.dest('./public/images'));
 });
 
+gulp.task('watch', ['default'], function () {
+    gulp.watch('assets/styl/**', ['stylus']);
+    gulp.watch('assets/js/**', ['lint', 'js']);
+});
+
 gulp.task('deploy', function () {
     var shell = require('shelljs');
 
