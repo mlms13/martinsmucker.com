@@ -28,7 +28,7 @@ gulp.task('lint', function () {
     var jshint = require('gulp-jshint'),
         stylish = require('jshint-stylish');
 
-    gulp.src('./assets/js/custom.js')
+    gulp.src(['./assets/js/custom.js', 'server.js', 'app/**/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
 });
