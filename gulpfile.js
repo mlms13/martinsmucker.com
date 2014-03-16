@@ -1,4 +1,5 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
+    gutil = require('gulp-util')
 
 gulp.task('stylus', function () {
     var stylus = require('gulp-stylus'),
@@ -39,6 +40,17 @@ gulp.task('images', function () {
     gulp.src('assets/images/**/*')
         .pipe(imagemin({progressive: true}))
         .pipe(gulp.dest('./public/images'));
+});
+
+gulp.task('server', ['default'], function () {
+    var nodemon = require('nodemon');
+
+    nodemon({
+        'script': 'server.js',
+        'ignore': ['.git', 'public/**', 'assets/**']
+    }).on('start', function () {
+        gutil.log('Nodemon has started the server');
+    });
 });
 
 gulp.task('watch', ['default'], function () {
