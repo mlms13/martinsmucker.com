@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    gutil = require('gulp-util')
+    gutil = require('gulp-util');
 
 gulp.task('stylus', function () {
     var stylus = require('gulp-stylus'),
@@ -99,4 +99,7 @@ gulp.task('deploy', ['compile'], function () {
 
 gulp.task('compile', ['stylus', 'js', 'lint', 'images']);
 
-gulp.task('default', ['compile', 'watch', 'server']);
+gulp.task('default', ['compile', 'watch', 'server'], function () {
+    var open = require('open');
+    open('http://localhost:3000');
+});
