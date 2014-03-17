@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util');
 
+// compile stylesheets
 gulp.task('stylus', function () {
     var stylus = require('gulp-stylus'),
         autoprefixer = require('gulp-autoprefixer'),
@@ -13,6 +14,7 @@ gulp.task('stylus', function () {
         .pipe(gulp.dest('./public/css'));
 });
 
+// minify javascript
 gulp.task('js', function () {
     var uglify = require('gulp-uglify');
 
@@ -25,6 +27,7 @@ gulp.task('js', function () {
         .pipe(gulp.dest('./public/lib/fastclick/build'));
 });
 
+// run scripts through jshint
 gulp.task('lint', function () {
     var jshint = require('gulp-jshint'),
         stylish = require('jshint-stylish');
@@ -34,6 +37,7 @@ gulp.task('lint', function () {
         .pipe(jshint.reporter(stylish));
 });
 
+// minify images
 gulp.task('images', function () {
     var imagemin = require('gulp-imagemin');
 
@@ -42,6 +46,7 @@ gulp.task('images', function () {
         .pipe(gulp.dest('./public/images'));
 });
 
+// start the server and restart when changes happen
 gulp.task('server', function () {
     var nodemon = require('nodemon');
 
@@ -53,6 +58,7 @@ gulp.task('server', function () {
     });
 });
 
+// watch files for changes and livereload the browser
 gulp.task('watch', function () {
     var lr = require('gulp-livereload'),
         server = lr();
@@ -64,6 +70,7 @@ gulp.task('watch', function () {
     });
 });
 
+// push everything to heroku
 gulp.task('deploy', ['compile'], function () {
     var shell = require('shelljs');
 
@@ -97,8 +104,10 @@ gulp.task('deploy', ['compile'], function () {
     }
 });
 
+// run all of the compilation-related tasks
 gulp.task('compile', ['stylus', 'js', 'lint', 'images']);
 
+// by default, compile everything, watch for changes, and start the server
 gulp.task('default', ['compile', 'watch', 'server'], function () {
     var open = require('open');
     open('http://localhost:3000');
