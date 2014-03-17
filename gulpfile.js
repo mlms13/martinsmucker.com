@@ -6,7 +6,7 @@ gulp.task('stylus', function () {
         autoprefixer = require('gulp-autoprefixer'),
         minify = require('gulp-minify-css');
 
-    gulp.src('./assets/styl/main.styl')
+    return gulp.src('./assets/styl/main.styl')
         .pipe(stylus({ paths: ['./styl/*.styl'] }))
         .pipe(autoprefixer())
         .pipe(minify())
@@ -16,7 +16,7 @@ gulp.task('stylus', function () {
 gulp.task('js', function () {
     var uglify = require('gulp-uglify');
 
-    gulp.src('./assets/js/*.js')
+    return gulp.src('./assets/js/*.js')
         .pipe(uglify())
         .pipe(gulp.dest('./public/js'));
 
@@ -29,7 +29,7 @@ gulp.task('lint', function () {
     var jshint = require('gulp-jshint'),
         stylish = require('jshint-stylish');
 
-    gulp.src(['./assets/js/custom.js', 'server.js', 'app/**/*.js'])
+    return gulp.src(['./assets/js/custom.js', 'server.js', 'app/**/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
 });
@@ -37,7 +37,7 @@ gulp.task('lint', function () {
 gulp.task('images', function () {
     var imagemin = require('gulp-imagemin');
 
-    gulp.src('assets/images/**/*')
+    return gulp.src('assets/images/**/*')
         .pipe(imagemin({progressive: true}))
         .pipe(gulp.dest('./public/images'));
 });
@@ -64,12 +64,12 @@ gulp.task('watch', function () {
     });
 });
 
-gulp.task('deploy', function () {
+gulp.task('deploy', ['compile'], function () {
     var shell = require('shelljs');
 
     if (!shell.which('git')) {
         console.error('You need git installed to deploy.');
-        exit(1);
+        shell.exit(1);
     }
 
     // add the build directory
