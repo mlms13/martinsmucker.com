@@ -2,8 +2,9 @@
   "name": "martinsmucker.com",
   "version": "0.0.1",
   "private": true,
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node server.js",
     "postinstall": "node node_modules/bower/bin/bower install"
   },
   "dependencies": {
@@ -22,6 +23,11 @@
     "gulp-stylus": "0.0.13",
     "gulp-minify-css": "~0.3.0",
     "gulp-imagemin": "~0.1.5",
-    "gulp-uglify": "~0.2.1"
+    "gulp-uglify": "~0.2.1",
+    "nodemon": "~1.0.15",
+    "gulp-util": "~2.2.14",
+    "connect-livereload": "~0.3.2",
+    "gulp-livereload": "~1.2.0",
+    "open": "0.0.4"
   }
 }
