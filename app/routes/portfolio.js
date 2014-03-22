@@ -4,7 +4,7 @@ var mongoUri = process.env.MONGOHQ_URL || require('../../config.js').mongohq_uri
 var db = require('mongojs').connect(mongoUri, ['portfolio']);
 
 module.exports = function (req, res) {
-    db.portfolio.find({}, function (err, items) {
+    db.portfolio.find().sort({date: -1}, function (err, items) {
         if (err) {
             res.render('portfolio', {
                 error: {
