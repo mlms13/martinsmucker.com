@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    if error
+        .alert.alert-danger
+            button.close(type="button", data-dismiss="alert", aria-hidden="true") &times;
+            strong= error.title
+            span= " " + error.body
+    else
+        main.portfolio-details.fixed-content
+            h1.portfolio-details-title= title
+            h2.portfolio-details-date= date
+
+            if links
+                ul.portfolio-details-links.unstyled
+                    if links.live
+                        li: a(href=links.live) On the Web
+
+            if pictures.banner
+                img(src="/images/portfolio/" + pictures.banner.src, alt="" + pictures.banner.alt)
+            
+            if tags.length
+                ul.portfolio-details-tags.unstyled
+                    each tag in tags
+                        li.portfolio-details-tag= tag
+
+            if description
+                section.portfolio-details-desc!= description

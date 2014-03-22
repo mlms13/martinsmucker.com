@@ -34,7 +34,8 @@ var index = require('./app/routes/index'),
 
 // handle http requests
 app.get('/', index);
-app.get('/portfolio', portfolio);
+app.get('/portfolio', portfolio.list);
+app.get('/portfolio/:slug', portfolio.showItem);
 app.get('/blog', blog.list);
 app.get('/blog/:slug', blog.showPost);
 app.get('/groceries', groceries);

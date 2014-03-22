@@ -3,7 +3,7 @@
 var mongoUri = process.env.MONGOHQ_URL || require('../../config.js').mongohq_uri;
 var db = require('mongojs').connect(mongoUri, ['portfolio']);
 
-module.exports = function (req, res) {
+module.exports.list = function (req, res) {
     db.portfolio.find().sort({date: -1}, function (err, items) {
         if (err) {
             res.render('portfolio', {
@@ -24,6 +24,24 @@ module.exports = function (req, res) {
                 title: 'Michael Martin-Smucker: Code and Design for the Modern Web',
                 items: items
             });
+        }
+    });
+};
+
+module.exports.showItem = function (req, res) {
+    db.portfolio.findOne({slug: req.params.slug}, function (err, item) {
+        if (err) {
+            res.render('portfolio-item', {
+                title: 'Troubles!',
+                body: 'We ran into some problems connecting to the database.'
+            });
+        } else if (!item) {
+            res.render('portfolio-item', {
+                title: 'Portfolio item not found',
+                content: '<p>No portfolio item was found with a URL of <code>/' + req.params.slug + '</code>.</p>'
+            });
+        } else {
+            res.render('portfolio-item', item);
         }
     });
 };
