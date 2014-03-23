@@ -30,7 +30,8 @@ block content
                                     | Codepen Demo
 
                     if pictures.banner
-                        img(src="/images/portfolio/" + slug + '/' + pictures.banner.src,
+                        img.portfolio-details-banner(
+                            src="/images/portfolio/" + slug + '/' + pictures.banner.src,
                             alt="" + pictures.banner.alt)
                     
                     if tags.length
