@@ -1,6 +1,7 @@
 @import "../variables"
 @import "../mixins"
 
+// the full portfolio list
 .portfolio
     background #444
     padding-top 20px
@@ -56,3 +57,24 @@
     padding 8px
     position absolute
     right 0
+
+// individual portfolio items on the details pages
+
+.portfolio-details-header
+    background #444
+    padding 20px
+
+.portfolio-details-title
+    color #fff
+    font-family $fancyFont
+    margin 8px 0
+
+    @media (min-width: 800px)
+        float left
+
+.portfolio-details-date
+    color #ccc
+    margin 8px 0
+
+    @media (min-width: 800px)
+        float right

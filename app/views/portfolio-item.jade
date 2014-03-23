@@ -7,27 +7,31 @@ block content
             strong= error.title
             span= " " + error.body
     else
-        main.portfolio-details.fixed-content
-            h1.portfolio-details-title= title
-            h2.portfolio-details-date= moment(date).format('MMM YYYY')
+        section.portfolio-details
+            header.portfolio-details-header
+                div.fixed-content
+                    hgroup.clearfix
+                        h1.portfolio-details-title= title
+                        h2.portfolio-details-date= moment(date).format('MMM YYYY')
 
-            if links
-                ul.portfolio-details-links.unstyled
-                    if links.live
-                        li: a(href=links.live) On the Web
-                    if links.github
-                        li: a(href=links.github) Github Repository
-                    if links.demo
-                        li: a(href=links.demo) Codepen Demo
+                    if links
+                        ul.portfolio-details-links.unstyled
+                            if links.live
+                                li: a(href=links.live) On the Web
+                            if links.github
+                                li: a(href=links.github) Github Repository
+                            if links.demo
+                                li: a(href=links.demo) Codepen Demo
 
-            if pictures.banner
-                img(src="/images/portfolio/" + slug + '/' + pictures.banner.src,
-                    alt="" + pictures.banner.alt)
-            
-            if tags.length
-                ul.portfolio-details-tags.unstyled
-                    each tag in tags
-                        li.portfolio-details-tag= tag
+                    if pictures.banner
+                        img(src="/images/portfolio/" + slug + '/' + pictures.banner.src,
+                            alt="" + pictures.banner.alt)
+                    
+                    if tags.length
+                        ul.portfolio-details-tags.unstyled
+                            each tag in tags
+                                li.portfolio-details-tag= tag
 
-            if description
-                section.portfolio-details-desc!= description
+            section.portfolio-details-content
+                if description
+                    div.portfolio-details-desc.fixed-content!= description
