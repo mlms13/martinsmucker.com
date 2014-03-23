@@ -15,13 +15,19 @@ block content
                         h2.portfolio-details-date= moment(date).format('MMM YYYY')
 
                     if links
-                        ul.portfolio-details-links.unstyled
+                        ul.portfolio-details-links.clearfix.unstyled
                             if links.live
-                                li: a(href=links.live) On the Web
+                                li: a(href=links.live)
+                                    i.portfolio-link-icon.icon-earth
+                                    | On the Web
                             if links.github
-                                li: a(href=links.github) Github Repository
+                                li: a(href=links.github)
+                                    i.portfolio-link-icon.icon-github
+                                    | Github Repository
                             if links.demo
-                                li: a(href=links.demo) Codepen Demo
+                                li: a(href=links.demo)
+                                    i.portfolio-link-icon.icon-codepen
+                                    | Codepen Demo
 
                     if pictures.banner
                         img(src="/images/portfolio/" + slug + '/' + pictures.banner.src,
