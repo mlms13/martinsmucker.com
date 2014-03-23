@@ -12,8 +12,12 @@ mixin portfolio(title)
             ul.portfolio-list.fixed-content.clearfix
                 each item in items
                     li.portfolio-item
-                        if item.pictures && item.pictures.landscape && item.pictures.landscape.src
-                            img.portfolio-item-img(src='/images/portfolio/' + item.pictures.landscape.src, alt="" + item.pictures.landscape.alt)
-                        else
-                            div.portfolio-item-noimage
-                        h3.portfolio-item-title= item.title
+                        a.portfolio-item-link(href='/portfolio/' + item.slug)
+                            if item.pictures.thumbnail && item.pictures.thumbnail.landscape
+                                    img.portfolio-item-img(
+                                    src='/images/portfolio/' + item.slug + '/' + item.pictures.thumbnail.landscape.src,
+                                    alt="" + item.pictures.thumbnail.landscape.alt)
+                            else
+                                span.portfolio-item-noimage
+                                    i.icon-pictures
+                            span.portfolio-item-title= item.title

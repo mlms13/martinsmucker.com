@@ -12,7 +12,8 @@
     "jade": "*",
     "less-middleware": "*",
     "bower": "~1.2.8",
-    "mongojs": "~0.9.6"
+    "mongojs": "~0.9.6",
+    "moment": "~2.5.1"
   },
   "devDependencies": {
     "gulp": "~3.5.2",

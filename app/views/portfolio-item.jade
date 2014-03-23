@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    if error
+        .alert.alert-danger
+            button.close(type="button", data-dismiss="alert", aria-hidden="true") &times;
+            strong= error.title
+            span= " " + error.body
+    else
+        section.portfolio-details
+            header.portfolio-details-header
+                div.fixed-content
+                    hgroup.clearfix
+                        h1.portfolio-details-title= title
+                        h2.portfolio-details-date= moment(date).format('MMM YYYY')
+
+                    if links
+                        ul.portfolio-details-links.clearfix.unstyled
+                            if links.live
+                                li: a(href=links.live)
+                                    i.portfolio-link-icon.icon-earth
+                                    | On the Web
+                            if links.github
+                                li: a(href=links.github)
+                                    i.portfolio-link-icon.icon-github
+                                    | Github Repository
+                            if links.demo
+                                li: a(href=links.demo)
+                                    i.portfolio-link-icon.icon-codepen
+                                    | Codepen Demo
+
+                    if pictures.banner
+                        img.portfolio-details-banner(
+                            src="/images/portfolio/" + slug + '/' + pictures.banner.src,
+                            alt="" + pictures.banner.alt)
+                    
+                    if tags.length
+                        ul.portfolio-details-tags.clearfix.unstyled
+                            each tag in tags
+                                li.portfolio-details-tag= tag
+
+            section.portfolio-details-content
+                if description
+                    div.portfolio-details-desc.fixed-content!= description
