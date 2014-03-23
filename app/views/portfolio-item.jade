@@ -21,7 +21,8 @@ block content
                         li: a(href=links.demo) Codepen Demo
 
             if pictures.banner
-                img(src="/images/portfolio/" + pictures.banner.src, alt="" + pictures.banner.alt)
+                img(src="/images/portfolio/" + slug + '/' + pictures.banner.src,
+                    alt="" + pictures.banner.alt)
             
             if tags.length
                 ul.portfolio-details-tags.unstyled
