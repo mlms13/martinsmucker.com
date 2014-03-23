@@ -13,7 +13,8 @@
     "less-middleware": "*",
     "bower": "~1.2.8",
     "mongojs": "~0.9.6",
-    "moment": "~2.5.1"
+    "moment": "~2.5.1",
+    "connect-livereload": "~0.3.2"
   },
   "devDependencies": {
     "gulp": "~3.5.2",
@@ -27,7 +28,6 @@
     "gulp-uglify": "~0.2.1",
     "nodemon": "~1.0.15",
     "gulp-util": "~2.2.14",
-    "connect-livereload": "~0.3.2",
     "gulp-livereload": "~1.2.0",
     "open": "0.0.4"
   }
