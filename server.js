@@ -20,8 +20,11 @@ app.locals.moment = require('moment');
 // otherwise we get the 404 page instead of static files (js, css, etc)
 app.use(express.static(path.join(__dirname, 'public')));
 
+console.log('The NODE_ENV is ' + app.get('env'));
+
 // in our development environment, inject the livereload script into non-static files
 app.configure('development', function () {
+    console.log('Based on the environment, we are loading connect-livereload.');
     app.use(require('connect-livereload')());
 });
 
