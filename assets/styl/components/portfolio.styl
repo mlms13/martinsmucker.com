@@ -30,20 +30,28 @@
         flex 1 0 auto
         width 300px
 
+.portfolio-item-link
+    box-sizing border-box
+    display block
+    transition 300ms
+
+    &:hover
+        box-shadow 0 0 0 4px #999
+
 .portfolio-item-img
+    display block
     // always full width, even if the container is bigger than the image
     width 100%
 
 .portfolio-item-noimage
     background $green
     color #fff
+    display block
     position absolute
     width 100%
 
     &:before
-        content "\e603"
         display block
-        font 42px Icomoon
         line-height 180px
         text-align center
 
@@ -52,6 +60,7 @@
     background rgba(255,255,255,0.9)
     bottom 0
     color $green
+    font-weight bold
     left 0
     margin 0
     padding 8px
