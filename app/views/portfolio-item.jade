@@ -9,7 +9,7 @@ block content
     else
         main.portfolio-details.fixed-content
             h1.portfolio-details-title= title
-            h2.portfolio-details-date= date
+            h2.portfolio-details-date= moment(date).format('MMM YYYY')
 
             if links
                 ul.portfolio-details-links.unstyled

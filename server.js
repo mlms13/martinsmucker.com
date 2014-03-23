@@ -14,6 +14,8 @@ app.use(express.compress());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 
+app.locals.moment = require('moment');
+
 // add static routes before we use our router
 // otherwise we get the 404 page instead of static files (js, css, etc)
 app.use(express.static(path.join(__dirname, 'public')));
