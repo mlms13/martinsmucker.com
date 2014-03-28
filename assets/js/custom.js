@@ -12,5 +12,5 @@
     });
 
     // enable fast clicking
-    FastClick.attach(document.body);
+    // FastClick.attach(document.body);
 }());
