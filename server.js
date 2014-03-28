@@ -1,7 +1,6 @@
 // import third-party modules
 var express = require('express'),
     app = express(),
-    server = require('http').createServer(app),
     path = require('path');
 
 // set up middleware for all environments
@@ -47,6 +46,6 @@ app.get('/groceries', groceries);
 app.get('*', error);
 
 // start listening for server activity
-server.listen(app.get('port'), function(){
+app.listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });
