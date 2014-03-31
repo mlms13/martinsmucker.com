@@ -38,6 +38,14 @@ gulp.task('lint', function () {
         .pipe(jshint.reporter(stylish));
 });
 
+// duplicate any other scripts from assets to public
+gulp.task('duplicate', function () {
+    gulp.src([
+        './assets/js/modernizr.js',
+        './assets/bower_components/respond/dest/respond.min.js'])
+    .pipe(gulp.dest('./public/js'))
+});
+
 // minify images
 gulp.task('images', function () {
     var imagemin = require('gulp-imagemin');
@@ -106,7 +114,7 @@ gulp.task('deploy', ['compile'], function () {
 });
 
 // run all of the compilation-related tasks
-gulp.task('compile', ['stylus', 'js', 'lint', 'images']);
+gulp.task('compile', ['stylus', 'js', 'lint', 'images', 'duplicate']);
 
 // by default, compile everything, watch for changes, and start the server
 gulp.task('default', ['compile', 'watch', 'server'], function () {
