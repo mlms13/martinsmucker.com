@@ -29,6 +29,7 @@
     "nodemon": "~1.0.15",
     "gulp-util": "~2.2.14",
     "gulp-livereload": "~1.2.0",
-    "open": "0.0.4"
+    "open": "0.0.4",
+    "gulp-concat": "~2.2.0"
   }
 }

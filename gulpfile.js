@@ -14,17 +14,18 @@ gulp.task('stylus', function () {
         .pipe(gulp.dest('./public/css'));
 });
 
-// minify javascript
+// minify all javascript
 gulp.task('js', function () {
-    var uglify = require('gulp-uglify');
+    var uglify = require('gulp-uglify'),
+        concat = require('gulp-concat')
 
-    return gulp.src('./assets/js/*.js')
+    return gulp.src([
+        './assets/bower_components/jquery/dist/jquery.min.js',
+        './assets/bower_components/fastclick/lib/fastclick.js',
+        './assets/js/custom.js'])
+        .pipe(concat('all.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./public/js'));
-
-    gulp.src('./public/lib/fastclick/lib/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('./public/lib/fastclick/build'));
 });
 
 // run scripts through jshint
