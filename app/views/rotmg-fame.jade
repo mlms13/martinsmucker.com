@@ -3,19 +3,24 @@ extends rotmg
 block styles
     style.
         .input-group {
-            width: 33%;
+            margin-bottom: 10px;
+        }
+        @media (min-width: 600px) {
+            .input-group {
+                width: 33%;
+                margin-bottom: 0;
+            }
         }
         #achievements label {
             display: block;
+            padding: 8px 0;
         }
         #achievements label:hover {
             background: #eee;
         }
         #achievements input {
-            clear: left;
             float: left;
-            margin: 2px 8px 1px 12px;
-            padding: 0;
+            margin: 10px 8px;
         }
 
 block subcontent

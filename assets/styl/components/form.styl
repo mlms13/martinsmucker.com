@@ -9,11 +9,13 @@ fieldset
 
 legend
     border-bottom 1px solid #ddd
+    box-sizing border-box
     margin-bottom 8px
     padding 2px 0
-    width 100% // why is this necessary when it's already display block?
+    width 100%
 
 input
+    box-sizing border-box
     display block
     margin-bottom 16px
     padding 2px
@@ -22,5 +24,8 @@ label
     display block
 
 form.inline
-    .input-group
-        float left
+    @media (min-width: 600px)
+        .input-group
+            box-sizing border-box
+            float left
+            padding-right 30px
