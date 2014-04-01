@@ -6,3 +6,10 @@ module.exports.fame = function (req, res) {
         current: "fame"
     });
 };
+
+module.exports.roll = function (req, res) {
+    res.render('rotmg-roll', {
+        title: "RotMG Roll Calculator",
+        current: "roll"
+    });
+};

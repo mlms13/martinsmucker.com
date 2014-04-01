@@ -52,6 +52,7 @@ app.get('/groceries', groceries);
 
 // handle subdomains
 app.get('/rotmg/fame', rotmg.fame);
+app.get('/rotmg/roll', rotmg.roll);
 
 // handle all other (404) pages
 app.get('*', error);

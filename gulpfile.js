@@ -42,6 +42,8 @@ gulp.task('lint', function () {
 gulp.task('duplicate', function () {
     return gulp.src([
         './assets/js/modernizr.js',
+        './assets/js/rotmg/autocomplete.js',
+        './assets/js/rotmg/roll.js',
         './assets/js/rotmg/fame.js',
         './assets/bower_components/respond/dest/respond.min.js'])
         .pipe(uglify())
