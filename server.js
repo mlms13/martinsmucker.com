@@ -39,6 +39,7 @@ var index = require('./app/routes/index'),
     portfolio = require('./app/routes/portfolio'),
     blog = require('./app/routes/blog'),
     groceries = require('./app/routes/groceries'),
+    rotmg = require('./app/routes/rotmg'),
     error = require('./app/routes/error');
 
 // handle http requests
@@ -50,9 +51,7 @@ app.get('/blog/:slug', blog.showPost);
 app.get('/groceries', groceries);
 
 // handle subdomains
-app.get('/rotmg/foo', function (req, res) {
-    res.send('This is the rotmg foo page');
-});
+app.get('/rotmg/fame', rotmg.fame);
 
 // handle all other (404) pages
 app.get('*', error);

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    section.subhead
+        h1.fixed-content Realm of the Mad God
+    nav.fixed-content.nav-pill
+        ul.clearfix
+            li: a(href="/fame" class= (current=="fame") ? "current" : "") Fame Calculator
+            li: a(href="/roll" class= (current=="roll") ? "current" : "") Roll Calculator
+    block subcontent

@@ -42,6 +42,7 @@ gulp.task('lint', function () {
 gulp.task('duplicate', function () {
     gulp.src([
         './assets/js/modernizr.js',
+        './assets/js/rotmg/fame.js',
         './assets/bower_components/respond/dest/respond.min.js'])
     .pipe(gulp.dest('./public/js'))
 });
