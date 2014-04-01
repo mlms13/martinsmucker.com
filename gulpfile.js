@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
-    gutil = require('gulp-util');
+    gutil = require('gulp-util'),
+    uglify = require('gulp-uglify');
 
 // compile stylesheets
 gulp.task('stylus', function () {
@@ -16,8 +17,7 @@ gulp.task('stylus', function () {
 
 // minify all javascript
 gulp.task('js', function () {
-    var uglify = require('gulp-uglify'),
-        concat = require('gulp-concat')
+    var concat = require('gulp-concat')
 
     return gulp.src([
         './assets/bower_components/jquery/dist/jquery.min.js',
@@ -40,11 +40,12 @@ gulp.task('lint', function () {
 
 // duplicate any other scripts from assets to public
 gulp.task('duplicate', function () {
-    gulp.src([
+    return gulp.src([
         './assets/js/modernizr.js',
         './assets/js/rotmg/fame.js',
         './assets/bower_components/respond/dest/respond.min.js'])
-    .pipe(gulp.dest('./public/js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./public/js'))
 });
 
 // minify images
