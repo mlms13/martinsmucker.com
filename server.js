@@ -1,7 +1,10 @@
 // import third-party modules
 var express = require('express'),
     app = express(),
+    subdomains = require('express-subdomains'),
     path = require('path');
+
+app.locals.moment = require('moment');
 
 // set up middleware for all environments
 app.set('port', process.env.PORT || 3000);
@@ -12,8 +15,6 @@ app.use(express.logger('dev'));
 app.use(express.compress());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-
-app.locals.moment = require('moment');
 
 // add static routes before we use our router
 // otherwise we get the 404 page instead of static files (js, css, etc)
@@ -26,6 +27,10 @@ app.configure('development', function () {
     console.log('Based on the environment, we are loading connect-livereload.');
     app.use(require('connect-livereload')());
 });
+
+// set up subdomain routes
+subdomains.use('rotmg');
+app.use(subdomains.middleware);
 
 app.use(app.router);
 
@@ -43,6 +48,13 @@ app.get('/portfolio/:slug', portfolio.showItem);
 app.get('/blog', blog.list);
 app.get('/blog/:slug', blog.showPost);
 app.get('/groceries', groceries);
+
+// handle subdomains
+app.get('/rotmg/foo', function (req, res) {
+    res.send('This is the rotmg foo page');
+});
+
+// handle all other (404) pages
 app.get('*', error);
 
 // start listening for server activity
