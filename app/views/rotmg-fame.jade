@@ -1,0 +1,43 @@
+extends rotmg
+
+block styles
+    style.
+        .input-group {
+            margin-bottom: 10px;
+        }
+        @media (min-width: 600px) {
+            .input-group {
+                width: 33%;
+                margin-bottom: 0;
+            }
+        }
+        #achievements label {
+            display: block;
+            padding: 8px 0;
+        }
+        #achievements label:hover {
+            background: #eee;
+        }
+        #achievements input {
+            float: left;
+            margin: 10px 8px;
+        }
+
+block subcontent
+    section.fixed-content
+        form(action="#" class="clearfix" class="inline shaded")
+            .clearfix
+                .input-group
+                    label(for="base" title="Fame earned when the character dies") Base Fame
+                    input(id="base" type="number")
+                .input-group
+                    label(for="total" title="Total fame, including bonuses") Total Fame
+                    input(id="total" type="number")
+            fieldset#achievements
+                legend Achievements
+
+block scripts
+    script(src="/js/fame.js")
+    script.
+        var calc = new FameCalc();
+        calc.initialize();

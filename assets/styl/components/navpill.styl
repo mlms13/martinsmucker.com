@@ -1,0 +1,28 @@
+@import "../variables"
+@import "../mixins"
+
+.nav-pill
+    margin-bottom 20px
+
+    ul
+        unstyled()
+    li
+        float left
+        margin-right 8px
+    a
+        border-radius 8px
+        display block
+        padding 8px
+        transition 200ms
+
+        &:hover
+            background #eaeaea
+            color $blueDarkest
+            text-decoration none
+        &:active
+            background #ddd
+            padding-top 9px
+            padding-bottom 7px
+        &.current
+            background $blue
+            color #fff

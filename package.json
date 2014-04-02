@@ -8,13 +8,14 @@
     "postinstall": "node node_modules/bower/bin/bower install"
   },
   "dependencies": {
+    "bower": "~1.2.8",
+    "connect-livereload": "~0.3.2",
     "express": "3.4.3",
+    "express-subdomains": "0.0.5",
     "jade": "*",
     "less-middleware": "*",
-    "bower": "~1.2.8",
-    "mongojs": "~0.9.6",
     "moment": "~2.5.1",
-    "connect-livereload": "~0.3.2"
+    "mongojs": "~0.9.6"
   },
   "devDependencies": {
     "gulp": "~3.5.2",
