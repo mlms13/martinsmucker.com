@@ -5,6 +5,7 @@ var express = require('express'),
     path = require('path');
 
 app.locals.moment = require('moment');
+app.locals.baseUrl = app.get('env') === 'development' ? 'localhost:3000' : 'martinsmucker.com';
 
 // set up middleware for all environments
 app.set('port', process.env.PORT || 3000);
@@ -20,11 +21,8 @@ app.use(express.methodOverride());
 // otherwise we get the 404 page instead of static files (js, css, etc)
 app.use(express.static(path.join(__dirname, 'public')));
 
-console.log('The NODE_ENV is ' + app.get('env'));
-
 // in our development environment, inject the livereload script into non-static files
 app.configure('development', function () {
-    console.log('Based on the environment, we are loading connect-livereload.');
     app.use(require('connect-livereload')());
 });
 
