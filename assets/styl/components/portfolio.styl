@@ -33,10 +33,12 @@
 .portfolio-item-link
     box-sizing border-box
     display block
+    overflow hidden
+    position relative
     transition 300ms
 
     &:hover
-        box-shadow 0 0 0 4px #999
+        box-shadow 0 0 0 4px $green
 
 .portfolio-item-img
     display block
@@ -56,16 +58,28 @@
         text-align center
 
 .portfolio-item-title
-    background #fff
-    background rgba(255,255,255,0.9)
+    background $green
     bottom 0
-    color $green
+    color #fff
     font-weight bold
     left 0
     margin 0
     padding 8px
     position absolute
     right 0
+
+    .no-touch &
+        // if we're using a mouse, set up a fun hover effect
+        bottom -36px
+        left -4px
+        opacity 0
+        right -4px
+        transition opacity 200ms 100ms, bottom 300ms
+
+    .no-touch :hover > &
+        bottom 0
+        opacity 1
+        transition opacity 300ms, bottom 200ms 100ms
 
 // individual portfolio items on the details pages
 
