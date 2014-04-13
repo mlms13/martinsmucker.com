@@ -41,6 +41,9 @@ module.exports.showItem = function (req, res) {
                 content: '<p>No portfolio item was found with a URL of <code>/' + req.params.slug + '</code>.</p>'
             });
         } else {
+            // add the codepen slug hash automatically
+            item.codepenHash = item.links.demo ?
+                               item.links.demo.substring(item.links.demo.lastIndexOf('/')) : '';
             res.render('portfolio-item', item);
         }
     });

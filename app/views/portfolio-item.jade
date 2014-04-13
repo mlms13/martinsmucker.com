@@ -29,7 +29,12 @@ block content
                                     i.portfolio-link-icon.icon-codepen
                                     | Codepen Demo
 
-                    if pictures.banner
+                    if links.demo
+                        .codepen-embed
+                            p(data-height="500", data-theme-id="0", data-slug-hash=codepenHash, data-default-tab="result", class="codepen")
+                                a(href=links.demo) See it on Codepen
+                        script(src="//codepen.io/assets/embed/ei.js", async)
+                    else if pictures.banner
                         img.portfolio-details-banner(
                             src="https://s3.amazonaws.com/mlmsportfolio/" + pictures.banner.src,
                             alt="" + pictures.banner.alt)
