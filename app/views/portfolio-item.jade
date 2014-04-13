@@ -37,7 +37,9 @@ block content
                     if tags.length
                         ul.portfolio-details-tags.clearfix.unstyled
                             each tag in tags
-                                li.portfolio-details-tag= tag
+                                li.portfolio-details-tag
+                                    i.icon-tag
+                                    = tag
 
             section.portfolio-details-content
                 if description
