@@ -1,0 +1,28 @@
+@import "../variables"
+
+.global-foot
+    background #ddd
+    line-height 48px
+    padding 20px
+
+.social
+    @media (min-width: 600px)
+        float right
+
+.social-item
+    float left
+    font-size 36px
+    margin-right 16px
+
+    a
+        color #777
+        transition 120ms
+
+        &:hover,
+        &:focus
+            color $blue
+            text-decoration none
+
+.copyright
+    color #777
+    margin 0
