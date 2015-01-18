@@ -39,7 +39,7 @@ gulp.task('lint', function () {
 });
 
 // duplicate any other scripts from assets to public
-gulp.task('duplicate', function () {
+gulp.task('duplicate:js', function () {
     return gulp.src([
         './assets/js/modernizr.js',
         './assets/js/rotmg/autocomplete.js',
@@ -47,7 +47,13 @@ gulp.task('duplicate', function () {
         './assets/js/rotmg/fame.js',
         './assets/bower_components/respond/dest/respond.min.js'])
         .pipe(uglify())
-        .pipe(gulp.dest('./public/js'))
+        .pipe(gulp.dest('./public/js'));
+});
+
+// duplicate all other assets into the public folder
+gulp.task('duplicate:assets', function () {
+    return gulp.src(['./assets/fonts/**/*'], {base: './assets'})
+        .pipe(gulp.dest('./public'));
 });
 
 // minify images
@@ -118,7 +124,7 @@ gulp.task('deploy', ['compile'], function () {
 });
 
 // run all of the compilation-related tasks
-gulp.task('compile', ['stylus', 'js', 'lint', 'images', 'duplicate']);
+gulp.task('compile', ['stylus', 'js', 'lint', 'images', 'duplicate:js', 'duplicate:assets']);
 
 // by default, compile everything, watch for changes, and start the server
 gulp.task('default', ['compile', 'watch', 'server'], function () {

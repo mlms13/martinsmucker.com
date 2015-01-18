@@ -2,10 +2,7 @@
 
 node_modules/
 config.js
-*.css
-assets/bower_components/
-public/images/*
-public/js/*
+public/*
 
 #################
 ## Eclipse
