@@ -1,8 +1,11 @@
 // import third-party modules
 var express = require('express'),
     app = express(),
+    morgan = require('morgan'),
+    compress = require('compression'),
     subdomains = require('express-subdomains'),
-    path = require('path');
+    path = require('path'),
+    env = process.env.NODE_ENV || 'development';
 
 app.locals.moment = require('moment');
 app.locals.baseUrl = app.get('env') === 'development' ? 'localhost:3000' : 'martinsmucker.com';
@@ -11,26 +14,21 @@ app.locals.baseUrl = app.get('env') === 'development' ? 'localhost:3000' : 'mart
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.compress());
-app.use(express.bodyParser());
-app.use(express.methodOverride());
+app.use(morgan('dev'));
+app.use(compress());
 
 // add static routes before we use our router
 // otherwise we get the 404 page instead of static files (js, css, etc)
 app.use(express.static(path.join(__dirname, 'public')));
 
 // in our development environment, inject the livereload script into non-static files
-app.configure('development', function () {
+if (env === 'development'){
     app.use(require('connect-livereload')());
-});
+}
 
 // set up subdomain routes
 subdomains.use('rotmg');
 app.use(subdomains.middleware);
-
-app.use(app.router);
 
 // routes
 var index = require('./app/routes/index'),
