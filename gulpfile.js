@@ -57,7 +57,10 @@ gulp.task('duplicate:js', function () {
 
 // duplicate all other assets into the public folder
 gulp.task('duplicate:assets', function () {
-    return gulp.src(['./assets/fonts/**/*'], {base: './assets'})
+    return gulp.src([
+        './assets/fonts/**/*',
+        './assets/static/**/*'
+        ], {base: './assets'})
         .pipe(gulp.dest('./public'))
         .pipe(lr());
 });
