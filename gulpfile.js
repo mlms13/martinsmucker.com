@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    lr = require('gulp-livereload')
 
 // compile stylesheets
 gulp.task('stylus', function () {
@@ -12,7 +13,8 @@ gulp.task('stylus', function () {
         .pipe(stylus({ paths: ['./styl/*.styl'] }))
         .pipe(autoprefixer())
         .pipe(minify())
-        .pipe(gulp.dest('./public/css'));
+        .pipe(gulp.dest('./public/css'))
+        .pipe(lr());
 });
 
 // minify all javascript
@@ -25,7 +27,8 @@ gulp.task('js', function () {
         './assets/js/custom.js'])
         .pipe(concat('all.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('./public/js'));
+        .pipe(gulp.dest('./public/js'))
+        .pipe(lr());
 });
 
 // run scripts through jshint
@@ -35,7 +38,8 @@ gulp.task('lint', function () {
 
     return gulp.src(['./assets/js/custom.js', 'server.js', 'app/**/*.js'])
         .pipe(jshint())
-        .pipe(jshint.reporter(stylish));
+        .pipe(jshint.reporter(stylish))
+        .pipe(lr());
 });
 
 // duplicate any other scripts from assets to public
@@ -47,13 +51,15 @@ gulp.task('duplicate:js', function () {
         './assets/js/rotmg/fame.js',
         './assets/lib/respond.min.js'])
         .pipe(uglify())
-        .pipe(gulp.dest('./public/js'));
+        .pipe(gulp.dest('./public/js'))
+        .pipe(lr());
 });
 
 // duplicate all other assets into the public folder
 gulp.task('duplicate:assets', function () {
     return gulp.src(['./assets/fonts/**/*'], {base: './assets'})
-        .pipe(gulp.dest('./public'));
+        .pipe(gulp.dest('./public'))
+        .pipe(lr());
 });
 
 // minify images
@@ -62,7 +68,8 @@ gulp.task('images', function () {
 
     return gulp.src('assets/images/**/*')
         .pipe(imagemin({progressive: true}))
-        .pipe(gulp.dest('./public/images'));
+        .pipe(gulp.dest('./public/images'))
+        .pipe(lr());
 });
 
 // start the server and restart when changes happen
@@ -79,14 +86,9 @@ gulp.task('server', function () {
 
 // watch files for changes and livereload the browser
 gulp.task('watch', function () {
-    var lr = require('gulp-livereload'),
-        server = lr();
-
+    lr.listen();
     gulp.watch('assets/styl/**', ['stylus']);
     gulp.watch('assets/js/**', ['lint', 'js']);
-    gulp.watch('public/**').on('change', function (file) {
-        server.changed(file.path);
-    });
 });
 
 // push everything to heroku
