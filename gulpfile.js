@@ -20,8 +20,8 @@ gulp.task('js', function () {
     var concat = require('gulp-concat')
 
     return gulp.src([
-        './assets/bower_components/jquery/dist/jquery.min.js',
-        './assets/bower_components/fastclick/lib/fastclick.js',
+        './assets/lib/jquery.js',
+        './assets/lib/fastclick.js',
         './assets/js/custom.js'])
         .pipe(concat('all.js'))
         .pipe(uglify())
@@ -45,7 +45,7 @@ gulp.task('duplicate:js', function () {
         './assets/js/rotmg/autocomplete.js',
         './assets/js/rotmg/roll.js',
         './assets/js/rotmg/fame.js',
-        './assets/bower_components/respond/dest/respond.min.js'])
+        './assets/lib/respond.min.js'])
         .pipe(uglify())
         .pipe(gulp.dest('./public/js'));
 });
