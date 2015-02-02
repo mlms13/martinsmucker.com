@@ -31,6 +31,53 @@ EReg.prototype = {
 	}
 	,__class__: EReg
 };
+var Hud = function() {
+	this.fuelHeight = 24;
+	this.fuelWidth = 200;
+	this.fuelPadding = 6;
+	this.mapPadding = 8;
+	this.batcher = Luxe.renderer.create_batcher({ name : "hud_batcher", layer : 4});
+	Luxe.draw.box({ x : 0, y : 0, w : Luxe.core.screen.w, h : 60, color : new phoenix.Color(1,1,1,0.8).rgb(6706568), batcher : this.batcher});
+	Luxe.draw.box({ x : Luxe.core.screen.w / 2 - this.fuelWidth / 2 - this.fuelPadding, y : 30 - this.fuelHeight / 2 - this.fuelPadding, w : this.fuelWidth + this.fuelPadding * 2, h : this.fuelHeight + this.fuelPadding * 2, color : new phoenix.Color().rgb(16777215), batcher : this.batcher});
+	this.fuel = new luxe.Sprite({ name : "fuel", centered : false, color : new phoenix.Color().rgb(43741), pos : new phoenix.Vector(Luxe.core.screen.w / 2 - this.fuelWidth / 2,30 - this.fuelHeight / 2), size : new phoenix.Vector(this.fuelWidth,this.fuelHeight), batcher : this.batcher});
+	this.text = Luxe.draw.text({ text : "0:00", point_size : 40, bounds : new phoenix.Rectangle(this.mapPadding,0,200,60), color : new phoenix.Color().rgb(16777215), batcher : this.batcher});
+};
+Hud.__name__ = true;
+Hud.prototype = {
+	setTime: function(time) {
+		var minutes = Math.floor(time / 60);
+		var seconds = Math.floor(time % 60);
+		var secondsPrefix;
+		if(seconds < 10) secondsPrefix = "0"; else secondsPrefix = "";
+		this.text.set_text((minutes == null?"null":"" + minutes) + ":" + secondsPrefix + (seconds == null?"null":"" + seconds));
+	}
+	,drawMap: function(world) {
+		this.mapWidth = 5 * world.cols + this.mapPadding * 2;
+		this.mapHeight = 5 * world.rows + this.mapPadding * 2;
+		this.mapScale = 5 / world.tileSize;
+		this.player = new luxe.Sprite({ name : "Mini Player", color : new phoenix.Color().rgb(43741), pos : new phoenix.Vector(0,0), size : new phoenix.Vector(5,5), batcher : this.batcher, depth : 2});
+		Luxe.draw.box({ x : Luxe.core.screen.w - this.mapWidth, y : 60, w : this.mapWidth, h : this.mapHeight - 60, color : new phoenix.Color(1,1,1,0.8).rgb(6706568), batcher : this.batcher});
+		var _g1 = 0;
+		var _g = world.rows;
+		while(_g1 < _g) {
+			var row = _g1++;
+			var _g3 = 0;
+			var _g2 = world.cols;
+			while(_g3 < _g2) {
+				var col = _g3++;
+				if(world.map[row][col] == MazeCell.wall) Luxe.draw.box({ x : Luxe.core.screen.w - this.mapWidth + col * 5 + this.mapPadding, y : row * 5 + this.mapPadding, w : 5, h : 5, color : new phoenix.Color(0,0,0,75).rgb(16777215), batcher : this.batcher});
+			}
+		}
+	}
+	,positionPlayerInMap: function(pos) {
+		this.player.get_pos().set_x(Luxe.core.screen.w - this.mapWidth + this.mapPadding + pos.x * this.mapScale);
+		this.player.get_pos().set_y(this.mapPadding + pos.y * this.mapScale);
+	}
+	,updateFuelMeter: function(currentFuel,maxFuel) {
+		this.fuel.size.set_x(currentFuel / maxFuel * this.fuelWidth);
+	}
+	,__class__: Hud
+};
 var HxOverrides = function() { };
 HxOverrides.__name__ = true;
 HxOverrides.cca = function(s,index) {
@@ -479,10 +526,12 @@ Main.prototype = $extend(luxe.Game.prototype,{
 		preload.load();
 	}
 	,onAssetsLoaded: function(_) {
+		this.hud = new Hud();
 		this.overlay = new VisualOverlay();
 		this.level = new Level("src/maps/1.worldmap",this.tileSize);
 		this.player = new Player(this.level.world.startPos,this.playerSize,this.level.world);
 		this.player.createAnimation();
+		this.hud.drawMap(this.level.world);
 		this.connectInput();
 	}
 	,connectInput: function() {
@@ -504,12 +553,15 @@ Main.prototype = $extend(luxe.Game.prototype,{
 			if(this.player.anim.get_animation() != "jump") this.player.anim.set_animation("jump");
 		}
 		if(Luxe.input.inputdown("up")) {
-			var _g = this.player.velocity;
-			_g.set_y(_g.y - this.player.maxSpeed / 4 * delta);
-			this.player.velocity.set_y(Math.max(this.player.velocity.y,-6));
-			moving = true;
-			if(this.player.anim.get_animation() != "jetpack") this.player.anim.set_animation("jetpack");
-		}
+			if(this.player.currentFuel > this.player.fuelBurnRate * delta) {
+				this.player.currentFuel = Math.max(0,this.player.currentFuel - this.player.fuelBurnRate * delta);
+				var _g = this.player.velocity;
+				_g.set_y(_g.y - this.player.maxSpeed / 4 * delta);
+				this.player.velocity.set_y(Math.max(this.player.velocity.y,-6));
+				moving = true;
+				if(this.player.anim.get_animation() != "jetpack") this.player.anim.set_animation("jetpack");
+			} else if(this.player.anim.get_animation() != "fuelless") this.player.anim.set_animation("fuelless");
+		} else this.player.currentFuel = Math.min(this.player.maxFuel,this.player.currentFuel + this.player.fuelChargeRate * delta);
 		if(Luxe.input.inputdown("left")) {
 			this.player.velocity.set_x(-this.player.maxSpeed * delta);
 			this.player.rendering.set_flipx(true);
@@ -526,10 +578,16 @@ Main.prototype = $extend(luxe.Game.prototype,{
 				if(this.player.anim.get_animation() != "walk") this.player.anim.set_animation("walk");
 			}
 		}
-		if(!moving && (this.player.isOnGround || this.player.anim.get_animation() != "jump")) this.player.anim.set_animation("idle");
-		this.player.move();
-		this.positionCamera();
-		this.positionBackground();
+		if(!moving && (this.player.isOnGround || this.player.anim.get_animation() != "jump" && this.player.anim.get_animation() != "fuelless")) this.player.anim.set_animation("idle");
+		if(this.player.velocity.x != 0 || this.player.velocity.y != 0) {
+			this.positionCamera();
+			this.positionBackground();
+			this.player.move();
+		}
+		this.level.time += delta;
+		this.hud.setTime(this.level.time);
+		this.hud.positionPlayerInMap(this.player.rendering.get_pos());
+		this.hud.updateFuelMeter(this.player.currentFuel,this.player.maxFuel);
 		if(this.player.isCollidingWith(this.level.world.endPos,this.tileSize,this.tileSize)) {
 			this.level.isActive = false;
 			this.overlay.setMessage("you win!");
@@ -583,6 +641,10 @@ MazeCell.end.toString = $estr;
 MazeCell.end.__enum__ = MazeCell;
 MazeCell.powerUp = function(value) { var $x = ["powerUp",4,value]; $x.__enum__ = MazeCell; $x.toString = $estr; return $x; };
 var Player = function(startPos,size,world) {
+	this.fuelChargeRate = 6.0;
+	this.fuelBurnRate = 30.0;
+	this.currentFuel = 100.0;
+	this.maxFuel = 100.0;
 	this.isOnGround = true;
 	this.currentWorld = world;
 	this.velocity = new phoenix.Vector(0,0);
