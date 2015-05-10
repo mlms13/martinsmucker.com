@@ -6,7 +6,7 @@ var db = require('mongojs').connect(mongoUri, ['portfolio']);
 module.exports = function (req, res) {
     db.portfolio.find({favorite: true}).sort({date: -1}).limit(6, function (err, items) {
         if (err) {
-            res.render('index', {
+            res.status(500).render('index', {
                 error: {
                     title: "Troubles!",
                     body: "We ran into some problems connecting to the database."

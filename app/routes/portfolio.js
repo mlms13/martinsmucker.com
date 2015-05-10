@@ -6,7 +6,7 @@ var db = require('mongojs').connect(mongoUri, ['portfolio']);
 module.exports.list = function (req, res) {
     db.portfolio.find().sort({date: -1}, function (err, items) {
         if (err) {
-            res.render('portfolio', {
+            res.status(500).render('portfolio', {
                 error: {
                     title: "Troubles!",
                     body: "We ran into some problems connecting to the database."
@@ -31,12 +31,12 @@ module.exports.list = function (req, res) {
 module.exports.showItem = function (req, res) {
     db.portfolio.findOne({slug: req.params.slug}, function (err, item) {
         if (err) {
-            res.render('portfolio-item', {
+            res.status(500).render('portfolio-item', {
                 title: 'Troubles!',
                 body: 'We ran into some problems connecting to the database.'
             });
         } else if (!item) {
-            res.render('portfolio-item', {
+            res.status(404).render('portfolio-item', {
                 title: 'Portfolio item not found',
                 content: '<p>No portfolio item was found with a URL of <code>/' + req.params.slug + '</code>.</p>'
             });

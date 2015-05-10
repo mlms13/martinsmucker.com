@@ -9,14 +9,14 @@ module.exports.list = function (req, res) {
 module.exports.showPost = function (req, res) {
     db.portfolio.findOne({slug: req.params.slug}, function (err, item) {
         if (err) {
-          res.render('blogpost', {
+          res.status(500).render('blogpost', {
             error: {
               title: "Troubles!",
               body: "We ran into some problems connecting to the database."
             }
           });
         } else if (!item) {
-            res.render('blogpost', {
+            res.status(404).render('blogpost', {
                 title: "The Blog Post Wasn't Found",
                 content: "<p>Are you sure the URL is correct? Because we looked pretty hard and couldn't find anything.</p>"
             });
