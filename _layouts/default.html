@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% if page.title %}{{page.title}}{% else %}{{site.title}}{% endif %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/main.css">
+  </head>
+  <body>
+    <header class="global-head">
+      <div class="fixed-content">
+        <h1 class="logo"><a href="/" class="logo-link">MLMS</a></h1>
+        <input type="checkbox" id="navbar-toggle-checkbox">
+        <label class="navbar-toggle" for="navbar-toggle-checkbox">
+          <div class="menu-overlay"></div>
+          <i class="icon-bars"></i>
+        </label>
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li class="navbar-item"><a class="navbar-link" href="/"><i class="navbar-icon icon-home"></i><span class="navbar-text">Home</span></a></li>
+            <li class="navbar-item"><a class="navbar-link" href="/portfolio"><i class="navbar-icon icon-pictures"></i><span class="navbar-text">Portfolio</span></a></li>
+            <li class="navbar-item"><a class="navbar-link" href="mailto:mlmartin13@gmail.com"><i class="navbar-icon icon-envelope"></i><span class="navbar-text">Email</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="main">
+      {{ content }}
+    </section>
+    <footer class="global-foot">
+      <div class="fixed-content">
+        <section class="social">
+          <ul class="unstyled">
+            <li class="social-item"><a href="https://github.com/mlms13"><i class="icon-github"></i><span class="sr-only">Github</span></a></li>
+            <li class="social-item"><a href="http://stackoverflow.com/users/388639/michael-martin-smucker"><i class="icon-stack-overflow"></i><span class="sr-only">Stack Overflow</span></a></li>
+            <li class="social-item"><a href="https://twitter.com/mlms13"><i class="icon-twitter"></i><span class="sr-only">Twitter</span></a></li>
+            <li class="social-item"><a href="http://codepen.io/mlms13"><i class="icon-codepen"></i><span class="sr-only">Codepen</span></a></li>
+          </ul>
+        </section>
+        <p class="copyright">&copy; 2017 Michael Martin-Smucker</p>
+      </div>
+    </footer>
+    <script src="/assets/js/main.js"></script>
+    <!-- TODO: google analytics -->
+  </body>
+</html>

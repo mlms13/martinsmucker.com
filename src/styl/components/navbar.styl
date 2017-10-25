@@ -1,0 +1,138 @@
+@import "../variables"
+
+.global-head
+  background: $blue
+  border-bottom: 2px solid $blueDarker
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  z-index: 10
+
+  .fixed-content
+    display: flex
+
+#navbar-toggle-checkbox
+  appearance: none
+  background: transparent
+  border: 0
+  height: 1px
+  width: 1px
+
+  &:checked
+    + .navbar-toggle
+      .icon-bars
+        background: $blueDarker
+
+      .menu-overlay
+        opacity: 0.66
+        transition: opacity $animationSpeed
+        visibility: visible
+
+    ~ .navbar
+      display: block
+
+.navbar-toggle
+  margin-left: auto
+  margin-right: -10px // to account for parent's padding
+
+  .icon-bars
+    background-color: transparent
+    color: #fff
+    cursor: pointer
+    display: inline-block
+    font-size: 30px
+    line-height: 54px
+    padding: 0 12px
+    position: relative
+    transition: all $animationSpeed
+    z-index: 120
+
+    &:hover
+      background: $blueDarker
+      text-decoration: none
+
+  .menu-overlay
+    background-color: #000000
+    bottom: 0
+    left: 0
+    opacity: 0;
+    position: fixed
+    right: 0
+    top: 0
+    transition: all $animationSpeed
+    visibility: hidden
+    z-index: 110
+
+  @media (min-width: 600px)
+    display: none
+
+.navbar
+  background: $blueDarker
+  display: none
+  position: absolute
+  right: 0
+  top: 54px
+  z-index: 120
+
+  @media (min-width: 600px)
+    background: none
+    display: block
+    margin-left: auto
+    position: relative
+    top: auto
+
+.navbar-list
+  list-style: none
+  margin: 0
+  padding: 0
+
+  @media (min-width: 600px)
+    display: flex
+    margin-left: auto
+
+.navbar-link
+  color: #fff
+  display: block
+  font-size: 20px
+  font-family: $fancyFont
+  line-height: 1.3
+  min-width: 50vw
+  padding: 8px 16px
+  text-decoration: none
+  transition: 0.2s
+
+  &:hover
+  &:focus
+    background-color: $blue
+    text-decoration: none
+
+  &:active
+    background-color: $blueDarkest
+    padding-top: 10px
+    padding-bottom: 6px
+
+  @media (pointer: coarse) {
+    line-height: 40px
+  }
+
+  @media (min-width: 600px)
+    line-height: 50px
+    min-width: auto
+    padding: 2px 12px
+    text-align: center
+
+    &:hover
+      background-color: $blueDarker
+
+    &:active
+      background-color: $blueDarkest
+      padding-top: 4px
+      padding-bottom: 0
+
+  @media (min-width: 800px)
+    padding-left: 16px
+    padding-right: 16px
+
+.navbar-icon
+  margin-right 0.6em

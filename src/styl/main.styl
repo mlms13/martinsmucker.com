@@ -1,0 +1,50 @@
+@charset "UTF-8"
+
+// import the basics
+@import "variables"
+@import "mixins"
+@import "normalize"
+@import "fonts"
+
+body
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+  padding-top: 50px
+
+  .main
+    flex: 1
+
+a
+  color: $blue
+  text-decoration: none
+
+  &:hover
+    text-decoration: underline
+
+.subhead
+  background: #444
+  margin-bottom: 20px
+  padding-top: 20px
+  padding-bottom: 20px
+
+  h1
+    color: #fff
+    margin-top: 0
+    margin-bottom: 0
+
+.about
+  background: #eee
+  border-top: 2px solid #ddd
+  padding: 12px 0
+
+
+// import components
+@import "components/utils"
+@import "components/logo"
+@import "components/form"
+@import "components/navbar"
+@import "components/navpill"
+@import "components/profile"
+@import "components/portfolio"
+@import "components/footer"

@@ -1,0 +1,31 @@
+{% if site.data.projects.size > 0 %}
+<section class="portfolio">
+  {% if include.title %}<h1 class="portfolio-title">{{include.title}}</h1>{% endif %}
+
+  <ul class="portfolio-list fixed-content">
+
+    {% capture keys %}
+      {% for project in site.data.projects %}
+        {{ project | first }}
+      {% endfor %}
+    {% endcapture %}
+
+    {% assign sorted_keys = keys | split:' ' | sort | reverse %}
+
+    {% for key in sorted_keys %}
+    {% assign item = site.data.projects[key] %}
+
+    <li class="portfolio-item">
+      <a href="/portfolio/{{ item.slug }}" class="portfolio-item-link">
+        {% if item.pictures.thumbnail && item.pictures.thumbnail.landscape %}
+          <img src="https://s3.amazonaws.com/mlmsportfolio/{{ item.pictures.thumbnail.landscape.src }}" alt="{{ item.pictures.thumbnail.landscape.alt }}" class="portfolio-item-img">
+        {% else %}
+          <span class="portfolio-item-noimage"><i class="icon-pictures"></i></span>
+        {% endif %}
+        <span class="portfolio-item-title">{{ item.title }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
