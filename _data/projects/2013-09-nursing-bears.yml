@@ -1,11 +1,11 @@
 slug: nursing-bears
 title: Nursing BEARS Website
-date: 1378008000000
+date: 2013-09-01
 category: Website
 client: USF Health
 tags:
-- Design
-- LESS
+  - Design
+  - LESS
 pictures:
   thumbnail:
     landscape:
@@ -17,9 +17,7 @@ pictures:
   full:
   other: []
 favorite: false
-description: "<p>Each holiday season, the USF College of Nursing distributes teddy
-  bears to local hospitals. For the 2013 season, I designed a new single-page site
-  for the program, which is fully responsive (using the Bootstrap grid) and features
-  a modern, flat design.<p>"
+description: >
+  Each holiday season, the USF College of Nursing distributes teddy bears to local hospitals. For the 2013 season, I designed a new single-page site for the program, which is fully responsive (using the Bootstrap grid) and features a modern, flat design.
 links:
   live: http://health.usf.edu/nursing/bears

@@ -1,40 +1,45 @@
-@import "../variables"
-@import "../mixins"
-
 .profile-card
-    margin-top 30px
-    text-align center
+  margin-top: 30px
+  text-align: center
 
 .profile-img
-    background #fff
-    border 5px solid $blue
-    border-radius 50%
-    box-sizing border-box
-    max-width 80%
-    padding 5px
+  background: #fff
+  border: 5px solid $blue
+  border-radius: 50%
+  box-sizing: border-box
+  max-width: 80%
+  padding: 5px
 
-    @media (min-width: 720px)
-        padding 10px
+  @media (min-width: 720px)
+    padding: 10px
 
 .profile-title
-    color $blueDarker
-    font-family $fancyFont
-    font-size 44px
-    font-size 11vw
-    margin -70px 0 0
-    shadow $blue #fff 1px
+  color: $blueDarker
+  font-family: $fancyFont
+  font-size: 44px
+  font-size: 11vw
+  margin: -70px 0 0
+  shadow: $blue #fff 1px
 
-    @media (min-width: 560px)
-        font-size 8vw
-        shadow $blue #fff 2px
+  @media (min-width: 560px)
+    font-size: 8vw
+    shadow: $blue #fff 2px
 
-    @media (min-width: 720px)
-        font-size 64px
+  @media (min-width: 720px)
+    font-size: 64px
+
+.short-bio
+  background-color: $blueDarkest
+  margin-top: 20px
+  padding: 20px
+
+  .btn-light
+    font-size: 18px
 
 .profile-desc
-    color #999
-    font-size 18px
-    font-style italic
+  color: $grayLightest
+  font-size: 18px
+  font-style: italic
 
-    @media (min-width: 560px)
-        font-size 22px
+  @media (min-width: 560px)
+    font-size: 22px

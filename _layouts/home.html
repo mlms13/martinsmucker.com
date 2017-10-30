@@ -6,8 +6,30 @@ layout: default
   <img class="profile-img" src="/assets/images/mm.jpg" alt="Michael Martin-Smucker">
   <figcaption class="profile-caption">
     <h2 class="profile-title">Michael Martin&#8209;Smucker</h2>
-    <p class="profile-desc">I develop web applications at Pellucid Analytics in Boulder, CO. In my free time I work on Node.JS projects and Haxe games.</p>
   </figcaption>
 </figure>
 
-{% include portfolio.html title="Featured Projects" count=8 %}
+<section class="short-bio">
+  <div class="fixed-content displ-flex items-center">
+    <p class="profile-desc">I'm a full-stack developer with a passion for the front-end web development and typed, functional programming.</p>
+    <div class="ml-auto no-shrink">
+      <a class="btn btn-light btn-with-icon" href="https://github.com/mlms13">
+        <i class="icon-github"></i>
+        <span>mlms13</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+{% capture keys %}
+{% for project in site.data.projects %}
+  {% if project.favorite %}
+    {{ project | first }}
+  {% endif %}
+{% endfor %}
+{% endcapture %}
+
+{% assign sorted_keys = keys | split:' ' | sort | reverse %}
+
+{% include portfolio.html title="Featured Projects" keys=sorted_keys limit=8 %}

@@ -1,19 +1,11 @@
-{% if site.data.projects.size > 0 %}
+{% if include.keys.size > 0 %}
 <section class="portfolio">
   {% if include.title %}<h1 class="portfolio-title">{{include.title}}</h1>{% endif %}
 
   <ul class="portfolio-list fixed-content">
 
-    {% capture keys %}
-      {% for project in site.data.projects %}
-        {{ project | first }}
-      {% endfor %}
-    {% endcapture %}
-
-    {% assign sorted_keys = keys | split:' ' | sort | reverse %}
-
-    {% for key in sorted_keys %}
-    {% assign item = site.data.projects[key] %}
+    {% for key in include.keys %}
+    {% assign item = site.data.projects[key] limit include.limit %}
 
     <li class="portfolio-item">
       <a href="/portfolio/{{ item.slug }}" class="portfolio-item-link">
