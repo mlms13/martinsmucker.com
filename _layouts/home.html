@@ -35,17 +35,15 @@ layout: default
 
 {% if sorted_keys.size > 0 %}
 <section class="project-cards">
-  <div class="fixed-content">
-    <h1 class="section-title">Notable Projects</h1>
-    <ul class="project-card-list">
-      {% for key in sorted_keys limit:6 %}
-        {% assign item = site.data.projects[key] %}
-        <li class="project-card-item">
-          {% include card.html project=item %}
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+  <h1 class="section-title">Notable Projects</h1>
+  <ul class="project-card-list">
+    {% for key in sorted_keys limit:6 %}
+      {% assign item = site.data.projects[key] %}
+      <li class="project-card-item">
+        {% include card.html project=item %}
+      </li>
+    {% endfor %}
+  </ul>
 </section>
 {% endif %}
 

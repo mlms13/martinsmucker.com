@@ -1,6 +1,8 @@
 slug: logo-scraper
 title: Logo Database and Scraper
-date: 2017-10-01
+date:
+  start: 2017-09-29
+  end: 2017-10-10
 category: Application
 client: Pellucid Analytics
 tags:

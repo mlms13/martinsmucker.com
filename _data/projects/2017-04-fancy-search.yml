@@ -1,0 +1,23 @@
+slug: fancy-search
+title: FancySearch
+date:
+  start: 2015-07-15
+  end: 2017-06-19
+category: UI Component
+client: Pellucid Analytics
+tags:
+  - Haxe
+  - JavaScript
+  - Reactive
+pictures: {}
+favorite: false # TODO
+description: >
+  FancySearch is a [typeahead search](https://en.wikipedia.org/wiki/Incremental_search) component written in Haxe, targetting JavaScript/browsers.
+
+    - The component manages an internal state using [Lies](https://github.com/fponticelli/lies) (conceptually similar to Redux)
+    - It responds to streaming events from the UI
+    - Suggestions are matched asynchronously
+
+  The component can be used with the raw DOM, but it works best when rendering to virtual DOM targets. It has been used in production with [Mithril.js](https://mithril.js.org/) and [Doom](https://github.com/fponticelli/doom)
+links:
+  github: https://github.com/mlms13/FancySearch

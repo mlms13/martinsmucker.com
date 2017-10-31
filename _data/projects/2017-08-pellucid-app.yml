@@ -1,0 +1,29 @@
+slug: pellucid-analytics
+title: Pellucid Analytics Application
+date:
+  start: 2014-05-12
+category: Application
+client: Pellucid Analytics
+tags:
+  - Haxe
+  - PostgreSQL
+  - Node.js
+  - Mithril
+  - Express
+pictures: {}
+favorite: false
+description: >
+  **Objective:** Make en e-commerce experience for customers wishing to purchase digital charts analyzing financial data.
+
+
+    - The front-end is written in Haxe (compiling to JavaScript)
+      - [Mithril.js](https://mithril.js.org/) is the UI framework
+      - Users interact with chart options using [json-editor](https://github.com/jdorn/json-editor)
+      - We developed an in-house component for editing data ([FancyTable](https://github.com/mlms13/FancyTable))
+    - Admin tooling uses [Doom](https://github.com/fponticelli/doom) and [Lies](https://github.com/fponticelli/lies) (similar to React/Redux)
+    - The back-end manages products, user data, and much more
+      - Routing uses [abe](https://github.com/abedev/abe), our custom, strongly typed layer over [Express.js](https://expressjs.com/)
+      - PostgreSQL holds all of the data
+
+links:
+  live: https://app.pellucid.com

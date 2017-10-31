@@ -7,11 +7,12 @@
   border: 5px solid $blue
   border-radius: 50%
   box-sizing: border-box
-  max-width: 80%
+  max-width: 300px
   padding: 5px
+  width: 80%
 
   @media (min-width: 720px)
-    padding: 10px
+    padding: 8px
 
 .profile-title
   color: $blueDarker
@@ -30,7 +31,7 @@
 
 .section-title
   font-family: $fancyFont
-  margin: 0
+  margin: 0 0 30px
   text-align: center
 
 .short-bio
@@ -59,10 +60,21 @@
 .project-card-list
   display: flex
   flex-wrap: wrap
+  justify-content: space-around
   list-style: none
   margin-top: 0
   margin-bottom: 0
   padding: 0
+
+  .project-card-item
+    margin-bottom: 30px
+    width: 100%
+
+    @media (min-width: 600px)
+      width: 85%
+
+    @media (min-width: 990px)
+      width: 46%
 
   ul
     list-style: disc

@@ -1,0 +1,19 @@
+slug: fancy-table
+title: FancyTable
+date:
+  start: 2015-11-05
+  end: 2017-05-29
+category: UI Component
+client: Pellucid Analytics
+tags:
+  - Haxe
+  - JavaScript
+pictures: {}
+favorite: false
+description: >
+  Fancy Table provides a simple spreadsheet-like implementation for Haxe and JavaScript. It supports collapsing rows, nested rows, fixed header rows and columns, and cell editing.
+
+    - Cell content is rendered lazily to improve performance
+    - Content is removed from the DOM when scrolled out of view, to support gigantic tables of data
+links:
+  github: https://github.com/mlms13/FancyTable

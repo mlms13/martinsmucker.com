@@ -1,0 +1,45 @@
+<section class="portfolio-details">
+  <header class="portfolio-details-header">
+    <div class="fixed-content">
+      <hgroup class="displ-flex">
+        <h1 class="portfolio-details-title">{{ include.title }}</h1>
+        <h2 class="portfolio-details-date ml-auto">{{ include.date | date: "%B %Y" }}</h2>
+      </hgroup>
+    </div>
+
+    {% if include.links %}
+      <ul class="portfolio-details-links unstyled displ-flex">
+        {% if include.links.live %}
+          <li><a href="{{ include.links.live }}"><i class="portfolio-link-icon icon-earth"></i> On the Web</a></li>
+        {% endif %}
+
+        {% if include.links.github %}
+          <li><a href="{{ include.links.github }}"><i class="portfolio-link-icon icon-github"></i> Github Repository</a></li>
+        {% endif %}
+
+        {% if include.links.demo %}
+          <li><a href="{{ include.links.demo }}"><i class="portfolio-link-icon icon-codepen"></i> Codepen Demo</a></li>
+        {% endif %}
+      </ul>
+    {% endif %}
+
+    {% if include.links.demo %}
+      <div class="codepen-embed">
+        <p data-height="500" data-theme-id="0" data-slug-hash="{{ include.codepenHash }}" data-default-tab="result" class="codepen">
+          <a href="{{ include.links.demo }}">See it on Codepen</a>
+        </p>
+      </div>
+      <script async src="//codepen.io/assets/embed/ei.js"></script>
+    {% elseif include.pictures.banner %}
+      <img src="https://s3.amazonaws.com/mlmsportfolio/{{ include.pictures.banner.src}}" alt="{{ include.pictures.banner.alt }}" class="portfolio-details-banner">
+    {% endif %}
+
+    {% if include.tags.size > 0 %}
+      <ul class="portfolio-details-tags unstyled displ-flex">
+        {% for tag in include.tags %}
+
+        {% endfor %}
+      </ul><li class="portfolio-details-tag"><i class="icon-tag"></i> tag</li>
+    {% endif %}
+  </header>
+</section>
