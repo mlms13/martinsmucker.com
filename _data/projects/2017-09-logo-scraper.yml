@@ -7,9 +7,18 @@ tags:
   - PureScript
   - Elm
   - SPARQL
+  - GraphQL
+  - PostgreSQL
 pictures: {}
 favorite: false
 description: >
-  TODO
+  **Objective:** Scrape company logo images from WikiData (RDF-formatted Wikipedia data) and present them in a friendly, searchable web app.
+
+
+  This project was created as a proof-of-concept in about a week.
+
+    - Scraper (written in PureScript) makes SPARQL queries to the WikiData service
+    - Downloaded data is processed and stored in PostgreSQL
+    - Elm web interface retrieves data via GraphQL and presents a searchable grid of logos
 links:
-  live: TODO
+  live: "" # TODO

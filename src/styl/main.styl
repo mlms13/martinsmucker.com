@@ -35,7 +35,7 @@ a
   flex-shrink: 0
 
 .btn
-  border-radius: 3px
+  border-radius: 4px
   display: inline-block
   padding: 8px 16px
   transition: all $animationSpeed
@@ -53,12 +53,12 @@ a
 
   &-light
     background-color: $grayLightest
-    color: $blue
+    color: $blueDarker
 
     &:hover
       box-shadow: 0 0 0 4px rgba(255,255,255,0.4)
-      background-color: $fff
-      color: $blueDarker
+      background-color: #fff
+      color: $blueDarkest
 
 .subhead
   background: #444
@@ -77,6 +77,7 @@ a
 @import "components/form"
 @import "components/navbar"
 @import "components/navpill"
+@import "components/footer"
+@import "components/card"
 @import "components/profile"
 @import "components/portfolio"
-@import "components/footer"

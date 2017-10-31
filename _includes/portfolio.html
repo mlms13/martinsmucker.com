@@ -1,11 +1,11 @@
 {% if include.keys.size > 0 %}
 <section class="portfolio">
-  {% if include.title %}<h1 class="portfolio-title">{{include.title}}</h1>{% endif %}
+  {% if include.title %}<h1 class="portfolio-title section-title">{{include.title}}</h1>{% endif %}
 
   <ul class="portfolio-list fixed-content">
 
-    {% for key in include.keys %}
-    {% assign item = site.data.projects[key] limit include.limit %}
+    {% for key in include.keys limit:include.limit %}
+    {% assign item = site.data.projects[key] %}
 
     <li class="portfolio-item">
       <a href="/portfolio/{{ item.slug }}" class="portfolio-item-link">

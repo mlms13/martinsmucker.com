@@ -1,0 +1,14 @@
+<div class="card">
+  <h3 class="card-title">{{ include.project.title }}</h3>
+  <h4 class="card-subtitle">{{ include.project.client }}</h4>
+  <hr class="divider">
+  <div class="card-body">
+    {{ include.project.description | markdownify}}
+  </div>
+  <hr class="divider">
+  <ul class="card-tags">
+    {% for tag in include.project.tags limit:4 %}
+      <li class="card-tag">{{ tag }}</li>
+    {% endfor %}
+  </ul>
+</div>
